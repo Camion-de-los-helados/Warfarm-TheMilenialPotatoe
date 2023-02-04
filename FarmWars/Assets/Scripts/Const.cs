@@ -1,7 +1,7 @@
 public static class Const
 {
     //Scenes
-    public const int SCENE1 = 1;//Ejemplo numeración escenas
+    public const int SCENE1 = 1;//Ejemplo numeraciï¿½n escenas
     public const int SCENE2 = 2;
     //Map Size
     public const int MAP_SIZE_HORIZONTAL = 9;
