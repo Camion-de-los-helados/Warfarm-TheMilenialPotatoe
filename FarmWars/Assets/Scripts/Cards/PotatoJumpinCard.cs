@@ -2,16 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotatoBombCard : Card
+public class PotatoJumpinCard : Card
 {
-    public PotatoBombCard()
-    {
-
-    }
-
     private void Awake()
     {
-        Type = CARD_TYPES.BOMB;
+        Type = CARD_TYPES.JUMPIN;
     }
 
     public override void DoAction()

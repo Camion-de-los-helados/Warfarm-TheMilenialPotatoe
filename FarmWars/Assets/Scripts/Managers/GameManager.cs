@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     public static GameManager m_gameManager { get; private set; }
     public GridManager m_gridManager { get; private set; }
     public CardManager CardManager { get; private set; }
+
+    [SerializeField]
+    private GameObject PotatoBombPrefab; 
+    
+    [SerializeField]
+    private GameObject PotatoJumpinPrefab;
+
     #endregion
 
     #region Properties
@@ -70,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
         //m_gridManager = GridManager.Instance;
 
         GameObject GO = new GameObject();
@@ -78,10 +85,19 @@ public class GameManager : MonoBehaviour
         //Instantiate(GO);
         GO.AddComponent(typeof(CardManager));
 
-        LocalPlayer = new Player();
+        if(PotatoBombPrefab==null || PotatoJumpinPrefab == null)
+        {
+            Debug.LogError("PREFAB NOT FOUND");
+        }
+        
+        CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
+        CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
+
+         LocalPlayer = new Player();
         RemotePlayer = new Player();
 
-        CardManager.Instance.DrawCard(LocalPlayer);
+        activeScene = SceneManager.GetActiveScene();
+
         SceneChanged();
 
 

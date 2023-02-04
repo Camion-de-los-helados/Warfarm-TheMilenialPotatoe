@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 62353541728559095}
   - component: {fileID: 62353541728559092}
   m_Layer: 5
-  m_Name: PotatoBombCard
+  m_Name: PotatoBombCard 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
