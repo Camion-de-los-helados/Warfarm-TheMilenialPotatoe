@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+
+    public static GridManager Instance { get; private set; };
+
+
     //CUIDAO CON TOCAR AQUI 
     private static float initXPos = -0.5008f;
     private static float initYPos = -0.5008f;
@@ -19,23 +23,45 @@ public class GridManager : MonoBehaviour
 
     public Dictionary<Vector2, Tile> TilesDictionary { get; private set; }
 
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         GenerateGrid();
     }
-    // Start is called before the first frame update
+
+
     void GenerateGrid()
     {
         TilesDictionary = new Dictionary<Vector2, Tile>();
 
-
         GameObject emptyParentTiles = Instantiate(new GameObject());
         emptyParentTiles.name = "Tiles";
-        for (float x = initXPos; x < Width; x++)
+
+        float actualPosX = initXPos;
+        float actualPosY = initYPos;
+        Tile spawnedPrefab = null;
+
+        for (int x = 0; x < Width; x++)
         {
-            for (float y = initYPos; y < Height; y++)
+            actualPosX = initXPos;
+            for (int y = 0; y < Height; y++)
             {
-                Tile spawnedPrefab = Instantiate(TilePrefab, new Vector3(x, y), Quaternion.identity);
+                spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
+
+
                 spawnedPrefab.name = "tile" + x + " " + y;
                 spawnedPrefab.transform.localScale = new Vector3(scale, scale, 0);
 
@@ -43,8 +69,13 @@ public class GridManager : MonoBehaviour
                 spawnedPrefab.Init(IsOffset);
 
                 spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
+                actualPosX += spawnedPrefab.GetSizeofRenderer().x;
             }
+
+            actualPosY += spawnedPrefab.GetSizeofRenderer().y;
+
         }
+
         Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
 
     }

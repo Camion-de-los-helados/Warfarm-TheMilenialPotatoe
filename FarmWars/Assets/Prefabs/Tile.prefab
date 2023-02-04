@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 8635956454193083223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 236410977563511391}
@@ -187,6 +187,8 @@ MonoBehaviour:
   OffsetColor: {r: 0.6981132, g: 0.2733179, b: 0.2733179, a: 0}
   Renderer: {fileID: 8007354958602608983}
   Higlight: {fileID: 5188410569920951625}
+  sizeX: 0
+  sizeY: 0
 --- !u!61 &-3050003258895658655
 BoxCollider2D:
   m_ObjectHideFlags: 0
