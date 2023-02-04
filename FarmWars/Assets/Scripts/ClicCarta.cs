@@ -9,10 +9,11 @@ public class ClicCarta : MonoBehaviour
     public GameObject colorImagen;
     public Color newColor;
     private Image imagen;
+    private Image newImage;
     // Start is called before the first frame update
     void Start()
     {
-        
+        newImage = gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -29,12 +30,18 @@ public class ClicCarta : MonoBehaviour
     public void AumetarCarta()
     {
         panelGrande.SetActive(true);
-        imagen.color = newColor;
-        //imagen.GetComponent<CanvasRenderer>().SetColor(newColor);
+        colorImagen.SetActive(true);
+
+        // El alpha esta bugged en este Unity y por eso hay que setearlo manual.
+        imagen.color = new Color(newColor.r, newColor.g, newColor.b, 1f);
+
+        imagen.sprite = newImage.sprite;
+        
     }
 
     public void DisminuirCarta()
     {
         panelGrande.SetActive(false);
+        colorImagen.SetActive(false);
     }
 }
