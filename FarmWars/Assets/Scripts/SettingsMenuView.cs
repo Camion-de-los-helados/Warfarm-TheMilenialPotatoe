@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class SettingsMenuView : View
 {
     [SerializeField] private Button BackButton;
+    [SerializeField] private Slider SoundEffects;
+    [SerializeField] private Slider Music;
+
     public override void Initialize()
     {
         BackButton.onClick.AddListener(() => UIManager.ShowLast());
