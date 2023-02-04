@@ -10,6 +10,8 @@ public class Tile : MonoBehaviour
     public float sizeX;
     public float sizeY;
 
+    public bool EnableTile = false;
+
     private void OnEnable()
     {
 
@@ -32,11 +34,18 @@ public class Tile : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        Higlight.SetActive(true);
+        if (EnableTile)
+            Higlight.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        Higlight.SetActive(false);
+        if (EnableTile)
+            Higlight.SetActive(false);
+    }
+
+    void OnMouseDown()
+    {
+        // Put trap
     }
 }

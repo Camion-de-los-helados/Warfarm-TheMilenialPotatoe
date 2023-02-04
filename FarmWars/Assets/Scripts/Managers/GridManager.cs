@@ -41,7 +41,19 @@ public class GridManager : MonoBehaviour
     {
         GenerateGrid();
     }
-
+    public void ActivateTiles()
+    {
+        for (int i = 0; i < Width; i++)
+            for (int j = 0; j < Height; j++)
+                GetTileAtPosition(new Vector2(i, j)).EnableTile = true;
+    } 
+    
+    public void DeactivateTiles()
+    {
+        for (int i = 0; i < Width; i++)
+            for (int j = 0; j < Height; j++)
+                GetTileAtPosition(new Vector2(i, j)).EnableTile = false;
+    }
 
     void GenerateGrid()
     {
@@ -53,10 +65,10 @@ public class GridManager : MonoBehaviour
         float actualPosX = initXPos;
         float actualPosY = initYPos;
         Tile spawnedPrefab = null;
-       
+
         for (int y = 0; y < Height; y++)
         {
-               actualPosX = initXPos;
+            actualPosX = initXPos;
 
             for (int x = 0; x < Width; x++)
             {
@@ -74,7 +86,7 @@ public class GridManager : MonoBehaviour
                 actualPosX += spawnedPrefab.GetSizeofRenderer().y;
 
                 TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
-                
+
             }
 
             actualPosY += spawnedPrefab.GetSizeofRenderer().x;

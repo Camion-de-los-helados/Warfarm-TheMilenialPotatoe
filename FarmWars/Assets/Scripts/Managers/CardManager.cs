@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class CardManager : MonoBehaviour
     [SerializeField]
     private Dictionary<CARD_TYPES, int> CardDeck = new Dictionary<CARD_TYPES, int>();
 
-
     private GameObject TopImage;
+
     private GameObject LeftImage;
     private GameObject RightImage;
     private GameObject MiddleImage;
@@ -44,14 +44,26 @@ public class CardManager : MonoBehaviour
     public void DrawCard(Player player)
     {
         List<CARD_TYPES> TotalCards = CreateCardTypeList();
-
+        TotalCards = RandomizeDeck(TotalCards);
         CARD_TYPES type = TotalCards[Random.Range(0, TotalCards.Count)];
-
+        Debug.Log(type);
+        TotalCards.Remove(type);
         player.AddCardToPlayer(DrawCardOfSpecificType(type));
 
         //return DrawCardOfSpecificType(type);
     }
+    private List<CARD_TYPES> RandomizeDeck(List<CARD_TYPES> deck)
+    {
+        for (int i = 0; i < deck.Count; i++)
+        {
+            CARD_TYPES temp = deck[i];
+            int randomIndex = Random.Range(i, deck.Count);
+            deck[i] = deck[randomIndex];
+            deck[randomIndex] = temp;
+        }
 
+        return deck;
+    }
     private List<CARD_TYPES> CreateCardTypeList()
     {
         List<CARD_TYPES> TotalCards = new List<CARD_TYPES>();
@@ -77,6 +89,8 @@ public class CardManager : MonoBehaviour
     {
 
         DrawCard(localPlayer);
+        DrawCard(localPlayer);
+        DrawCard(localPlayer);
 
         TopImage = GameObject.Find("TopImage");
         MiddleImage = GameObject.Find("MiddleImage");
@@ -94,7 +108,6 @@ public class CardManager : MonoBehaviour
             }
             else
             {
-
                 switch (localPlayer.m_playerCards[i].Type)
                 {
                     case CARD_TYPES.BOMB:
