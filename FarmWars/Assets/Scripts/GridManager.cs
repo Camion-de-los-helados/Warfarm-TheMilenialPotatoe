@@ -7,7 +7,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
 
-    public static GridManager Instance { get; private set; };
+    public static GridManager Instance { get; private set; }
 
 
     //CUIDAO CON TOCAR AQUI 
