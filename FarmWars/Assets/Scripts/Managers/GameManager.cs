@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     [Header("MiniGames")]
     public GameObject _lastWinner;
     #endregion
-    private List<GameObject> m_player1Cards;
-    private List<GameObject> m_player2Cards;
+    private Player LocalPlayer;
+    private Player RemotePlayer;
+
+    public Player LastMiniGameWinner;
     #endregion
 
     #region Methods
@@ -30,28 +32,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(id);
     }
-    public void AddCardToPlayer(int player, GameObject card)
-    {
-        if(player == 0)
-        {
-            m_player1Cards.Add(card);
-        }
-        else
-        {
-            m_player2Cards.Add(card);
-        }
-    }
-    public void RemoveCardFromPlayer(int player, GameObject card)
-    {
-        if (player == 0)
-        {
-            m_player1Cards.Remove(card);
-        }
-        else
-        {
-            m_player2Cards.Remove(card);
-        }
-    }
+
     #endregion
 
     private void Awake()
@@ -70,7 +51,14 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         m_gridManager = GridManager.Instance;
-        m_player1Cards = new List<GameObject>();
-        m_player2Cards = new List<GameObject>();
+
+        LocalPlayer = new Player();
+        RemotePlayer = new Player();
     }
+}
+
+
+public enum CardInHand
+{
+    LEFTCARD, MIDDLECARD, RIGHTCARD
 }
