@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player
 {
-    private Card[] m_playerCards = new Card[Const.MAX_CARDS_PER_PLAYER];
+    public Card[] m_playerCards = new Card[Const.MAX_CARDS_PER_PLAYER];
     private int NumberOfCardsInHand = 0;
     private int ID;
     #region Methods

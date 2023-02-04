@@ -17,7 +17,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     public void Init(bool isOffset)
     {
-        Renderer.color = isOffset ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, 1f) : new Color(BaseColor.r, OffsetColor.g, OffsetColor.b, 1f);
+        Renderer.color = isOffset ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a) : new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
 
         //Renderer.sortingLayerName = "Top";
         //Renderer.UpdateGIMaterials();
