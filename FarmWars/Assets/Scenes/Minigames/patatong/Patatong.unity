@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c502a613b2226e428a29af78f3bd785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 10
   rb: {fileID: 364102730}
 --- !u!50 &364102730
 Rigidbody2D:
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   rb: {fileID: 931637904}
 --- !u!50 &931637904
 Rigidbody2D:
@@ -539,7 +539,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   rb: {fileID: 1533451019}
 --- !u!50 &1533451019
 Rigidbody2D:
