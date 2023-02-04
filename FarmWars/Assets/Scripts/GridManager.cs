@@ -17,6 +17,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile TilePrefab;
     [SerializeField] private Transform Camera;
 
+    public Dictionary<Vector2, Tile> TilesDictionary { get; private set; }
+
     private void Start()
     {
         GenerateGrid();
@@ -24,7 +26,11 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void GenerateGrid()
     {
-        //GameObject emptyParentTiles = Instantiate(new GameObject(), new Vector3(0, 0, 0));
+        TilesDictionary = new Dictionary<Vector2, Tile>();
+
+
+        GameObject emptyParentTiles = Instantiate(new GameObject());
+        emptyParentTiles.name = "Tiles";
         for (float x = initXPos; x < Width; x++)
         {
             for (float y = initYPos; y < Height; y++)
@@ -36,9 +42,25 @@ public class GridManager : MonoBehaviour
                 var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
                 spawnedPrefab.Init(IsOffset);
 
-                //spawnedPrefab.transform.SetParent(emptyParentTiles);
+                spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
             }
         }
         Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
+
     }
+
+    public Tile GetTileAtPosition(Vector2 pos)
+    {
+        if (TilesDictionary.TryGetValue(pos, out Tile tile))
+        {
+            return tile;
+        }
+        else
+        {
+            Debug.LogWarning("Tile not found");
+            return null;
+        }
+
+    }
+
 }
