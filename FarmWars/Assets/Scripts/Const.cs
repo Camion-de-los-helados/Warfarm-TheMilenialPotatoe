@@ -9,4 +9,5 @@ public static class Const
     //Cards
     public const int MAX_CARDS_PER_PLAYER = 4;
     public const int MAX_CARTYPE = 5;//Usar este estilo para los distintos tipos de cartas
+    public const int MAX_CLICKS_POTATOPEELER = 150;//numero de clicks que hay que hacer en el boton en el minijuego de pelar la patata
 }
