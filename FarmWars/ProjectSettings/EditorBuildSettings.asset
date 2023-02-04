@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CoherenceScene.unity
     guid: 5e0292bae8409cb4c915f66e10570629
+  - enabled: 1
+    path: Assets/Scenes/TestTilesMap.unity
+    guid: 0be789a670dd19742b03f0ae77ed6641
   m_configObjects:
     io.coherence.simulator.build.options: {fileID: 11400000, guid: 6767f04400a008f458cf265c555d4385, type: 2}

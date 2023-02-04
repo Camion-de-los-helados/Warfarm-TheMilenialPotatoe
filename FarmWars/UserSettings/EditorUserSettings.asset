@@ -5,6 +5,24 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    Coherence.BakeOnBuild:
+      value: 53
+      flags: 0
+    Coherence.BakeOnEnterPlayMode:
+      value: 53
+      flags: 0
+    Coherence.CodeGen.LastInstallation:
+      value: 15011a52561b59
+      flags: 0
+    Coherence.GatherOnBake:
+      value: 52
+      flags: 0
+    Coherence.Package.LastInstallation:
+      value: 531f05564b0d
+      flags: 0
+    Coherence.Settings.ActiveSchemas.Hash:
+      value: 55500103500d515e5e0d087b47275a494f411e7d742e20632e7f1c63b4b8316f
+      flags: 0
     RecentlyUsedSceneGuid-0:
       value: 515250075c0c595e5f5a5e71122159444e4e4a2f7a7d7f602f284d66b4b76661
       flags: 0
