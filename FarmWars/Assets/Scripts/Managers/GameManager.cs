@@ -7,36 +7,24 @@ public class GameManager : MonoBehaviour
 {
     #region References
     public static GameManager m_gameManager { get; private set; }
-    private List<AudioSource> m_audioSources;
+    public GridManager m_gridManager { get; private set; }
     #endregion
     
     #region Properties
     [Header("Sound")]
     [Range(0,100)]
-    public float _audioVolume;
+    public float _soundVolume;
+    [Range(0, 100)]
+    public float _effectsVolume;
+
+    [Header("MiniGames")]
+    public GameObject _lastWinner;
     #endregion
 
     #region Methods
     public void LoadScene(int id)
     {
-        ClearAudioSources();
         SceneManager.LoadScene(id);
-        UpdateVolume();
-    }
-    private void ClearAudioSources()
-    {
-        m_audioSources.Clear();
-    }
-    public void AddAudioSource(AudioSource audio)
-    {
-        m_audioSources.Add(audio);
-    }
-    private void UpdateVolume()
-    {
-        foreach(AudioSource audio in m_audioSources)
-        {
-            audio.volume = _audioVolume;
-        }
     }
     #endregion
 
@@ -55,11 +43,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        m_audioSources = new List<AudioSource>();
-    }
-
-    void Update()
-    {
-        
+        m_gridManager = GridManager.Instance;
     }
 }
