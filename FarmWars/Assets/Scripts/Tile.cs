@@ -19,7 +19,7 @@ public class Tile : MonoBehaviour
     {
         Renderer.color = isOffset ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, 1f) : new Color(BaseColor.r, OffsetColor.g, OffsetColor.b, 1f);
 
-
+        //Renderer.sortingLayerName = "Top";
         //Renderer.UpdateGIMaterials();
     }
 
@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
     {
         sizeX = Renderer.bounds.size.x;
         sizeY = Renderer.bounds.size.y;
-        Debug.Log(sizeX + " " + sizeY);
+        //Debug.Log(sizeX + " " + sizeY);
         return new Vector2(sizeX, sizeY);
     }
     void OnMouseEnter()

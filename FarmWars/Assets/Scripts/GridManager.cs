@@ -11,8 +11,8 @@ public class GridManager : MonoBehaviour
 
 
     //CUIDAO CON TOCAR AQUI 
-    private static float initXPos = -0.5008f;
-    private static float initYPos = -0.5008f;
+    private static float initXPos = -4.6414f;
+    private static float initYPos = -2.4f;
     private static float scale = 1f;
     //MUCHO CUIDAO
 
@@ -53,14 +53,16 @@ public class GridManager : MonoBehaviour
         float actualPosX = initXPos;
         float actualPosY = initYPos;
         Tile spawnedPrefab = null;
-
-        for (int x = 0; x < Width; x++)
+       
+        for (int y = 0; y < Height; y++)
         {
-            actualPosX = initXPos;
-            for (int y = 0; y < Height; y++)
-            {
-                spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
+               actualPosX = initXPos;
 
+            for (int x = 0; x < Width; x++)
+            {
+                //actualPosX = initXPos;
+
+                spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
 
                 spawnedPrefab.name = "tile" + x + " " + y;
                 spawnedPrefab.transform.localScale = new Vector3(scale, scale, 0);
@@ -69,14 +71,18 @@ public class GridManager : MonoBehaviour
                 spawnedPrefab.Init(IsOffset);
 
                 spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
-                actualPosX += spawnedPrefab.GetSizeofRenderer().x;
+                actualPosX += spawnedPrefab.GetSizeofRenderer().y;
+
+                TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
+                
             }
 
-            actualPosY += spawnedPrefab.GetSizeofRenderer().y;
+            actualPosY += spawnedPrefab.GetSizeofRenderer().x;
+
 
         }
 
-        Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
+        //Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
 
     }
 

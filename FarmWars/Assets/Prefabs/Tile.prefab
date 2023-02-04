@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 360939315
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.3882353}
@@ -157,8 +157,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 360939315
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee2d339016406a48a480d42c542f368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseColor: {r: 0.50440884, g: 0.9528302, b: 0.13034001, a: 0}
-  OffsetColor: {r: 0.6981132, g: 0.2733179, b: 0.2733179, a: 0}
+  BaseColor: {r: 0.50440884, g: 0.9528302, b: 0.13034001, a: 0.46666667}
+  OffsetColor: {r: 0.6981132, g: 0.2733179, b: 0.2733179, a: 0.45490196}
   Renderer: {fileID: 8007354958602608983}
   Higlight: {fileID: 5188410569920951625}
   sizeX: 0
