@@ -7,10 +7,14 @@ using TMPro;
 public class TiroPatataManager : MonoBehaviour
 {
     public GameObject potatoPrefab;
+    public GameObject m_syncManager;
+    private syncManagerTiroPatata m_syncM;
     public float speed;
+    public int playerID;
     private SpriteRenderer sprite;
     private bool shoot = false;
     private Vector2 shootPos;
+
 
     float posX;
     float posY;
@@ -33,6 +37,7 @@ public class TiroPatataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_syncM = m_syncManager.GetComponent<syncManagerTiroPatata>();
         deltaTime = timeBetweenPotatos;
         
         scoreTexto = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
@@ -114,6 +119,7 @@ public class TiroPatataManager : MonoBehaviour
     }
     private void endGame()
     {
+        m_syncM.finishPlayer(puntuacion, playerID);
         //Enviar la puntuación al GameManager
     }
     public void Muerto(GameObject gameObject) 
