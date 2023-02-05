@@ -30,25 +30,36 @@ public class GridManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
-
         }
         else
         {
+            DontDestroyOnLoad(this);
+
             Instance = this;
+
         }
     }
 
-    private void Start()
+
+    public void EnableSpecificTile(int x, int y)
+    {
+        if (TilesDictionary.TryGetValue(new Vector2(x, y), out Tile tile))
+        {
+            tile.EnableTile = true;
+        }
+    }
+    private void OnEnable()
     {
         GenerateGrid();
     }
+
     public void ActivateTiles()
     {
         for (int i = 0; i < Width; i++)
             for (int j = 0; j < Height; j++)
                 GetTileAtPosition(new Vector2(i, j)).EnableTile = true;
-    } 
-    
+    }
+
     public void DeactivateTiles()
     {
         for (int i = 0; i < Width; i++)
@@ -59,6 +70,7 @@ public class GridManager : MonoBehaviour
     void GenerateGrid()
     {
         TilesDictionary = new Dictionary<Vector2, Tile>();
+
 
         GameObject emptyParentTiles = Instantiate(new GameObject());
         emptyParentTiles.name = "Tiles";
@@ -77,6 +89,9 @@ public class GridManager : MonoBehaviour
 
                 spawnedPrefab.name = "tile" + x + " " + y;
                 spawnedPrefab.transform.localScale = new Vector3(scale, scale, 0);
+
+                spawnedPrefab.x = x;
+                spawnedPrefab.y = y;
 
                 var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
                 spawnedPrefab.Init(IsOffset);

@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public Player LastMiniGameWinner;
     #endregion
 
+    public int turn = 0;
+    public Vector2Int PotatoPosition;
 
 
     #region Methods
@@ -68,6 +70,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+
+            PotatoPosition = new Vector2Int(4, 2);
+
             //m_gridManager = GridManager.Instance;
             GameObject GO = new GameObject();
             GO.name = "CardManager";
@@ -85,7 +90,7 @@ public class GameManager : MonoBehaviour
             CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
 
             CardManager.Instance.DrawCard(LastMiniGameWinner);
-          
+
         }
     }
 
@@ -101,7 +106,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    internal void UpdatePatatoPos(int x, int y)
+    {
+        GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile);
+        tile.Patata.enabled = false;
+        PotatoPosition = new Vector2Int(x, y);
+        //GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile2)
+        //tile2.Patata.enabled = true;
+    }
 
+    internal void Win()
+    {
+        // actual player winner
+    }
 }
 
 public enum CardInHand

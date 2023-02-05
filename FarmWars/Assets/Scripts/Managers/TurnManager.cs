@@ -11,12 +11,36 @@ public class TurnManager : MonoBehaviour
 
     public GameObject LeftTopImage;
     public TMP_Text TextP;
+    public SpriteRenderer sR;
+    public Sprite NewSprite;
+
+    public bool PotatoMoved = false;
+
     public void NextTurn()
     {
-        if (BothPlayersPlayed)
+        if (PotatoMoved)
         {
             int minigame = Random.Range(2, 5);
             GameManager.m_gameManager.LoadScene(minigame);
+        }
+        else if (BothPlayersPlayed)
+        {
+            PotatoMoved = true;
+
+            GridManager.Instance.DeactivateTiles();
+
+
+            Vector2Int PPosition = GameManager.m_gameManager.PotatoPosition;
+
+            GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y + 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y - 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y - 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y + 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x, PPosition.y + 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x, PPosition.y - 1);
+            GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y);
+            GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y);
+
         }
         else
         {
@@ -28,8 +52,11 @@ public class TurnManager : MonoBehaviour
             {
                 ActualPlayer = GameManager.m_gameManager.PlayerOne;
             }
+
             Debug.Log(ActualPlayer.ID);
             TextP.text = "P" + (ActualPlayer.ID + 1);
+
+            sR.sprite = NewSprite;
 
             CardManager.Instance.DrawCard(ActualPlayer);
 
@@ -38,7 +65,7 @@ public class TurnManager : MonoBehaviour
 
             LeftTopImage.SetActive(true);
             LeftTopImage.GetComponentInChildren<Button>().gameObject.SetActive(false);
-
+            GridManager.Instance.DeactivateTiles();
         }
 
 
@@ -46,7 +73,14 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(GridManager.Instance);
+        Debug.Log(GameManager.m_gameManager.PotatoPosition);
+
+        GridManager.Instance.GetTileAtPosition(GameManager.m_gameManager.PotatoPosition).Patata.enabled = true;
+
         ActualPlayer = GameManager.m_gameManager.LastMiniGameWinner;
         CardManager.Instance.LoadSceneVariables(true, ActualPlayer);
     }
+
+
 }

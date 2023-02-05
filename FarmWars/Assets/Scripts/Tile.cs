@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Tile : MonoBehaviour
     public float sizeX;
     public float sizeY;
 
+    public int x;
+    public int y;
+
     [SerializeField]
     private SpriteRenderer TrapJump;
 
@@ -19,12 +23,16 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private SpriteRenderer TrapBomb;
 
+    [SerializeField]
+    public SpriteRenderer Patata;
+
     public bool EnableTile = false;
 
 
     // Start is called before the first frame update
     public void Init(bool isOffset)
     {
+        Patata.enabled = false;
         Renderer.color = isOffset ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a) : new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
     }
 
@@ -37,13 +45,13 @@ public class Tile : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        if (EnableTile)
+        if (EnableTile && !CheckTraps())
             Higlight.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        if (EnableTile)
+        if (EnableTile && !CheckTraps())
             Higlight.SetActive(false);
     }
 
@@ -54,45 +62,153 @@ public class Tile : MonoBehaviour
         {
 
             LeftTopImage LTI = GameObject.FindObjectOfType<LeftTopImage>();
-
-            CARD_TYPES CardType = LTI.CardInTopLeft.Type;
-            LTI.enabled = false;
-
-            GameManager.m_gameManager.PlayerOne.RemoveOneCardFromPlayer(CardType);
-            //CardManager.Instance.LoadSceneVariables(false, GameManager.m_gameManager.);
-            //GridManager.Instance.DeactivateTiles();
-            //CardManager.Instance.DeactivateCards();
-
-
-            LTI.DownPanel.SetActive(true);
-            LTI.GOCardInTopLeft.SetActive(false);
-            LTI.gameObject.SetActive(false);
-
-            switch (CardType)
+            if (LTI != null && LTI.CardInTopLeft != null)
             {
-                case CARD_TYPES.BOMB:
-                    TrapBomb.enabled = true;
-                    break;
 
-                case CARD_TYPES.JUMPIN:
-                    TrapJump.enabled = true;
-                    break;
+                CARD_TYPES CardType = LTI.CardInTopLeft.Type;
+                LTI.enabled = false;
 
-                case CARD_TYPES.BLOCK:
-                    TrapBlock.enabled = true;
-                    break;
+                GameManager.m_gameManager.PlayerOne.RemoveOneCardFromPlayer(CardType);
 
-                default:
-                    break;
+                LTI.DownPanel.SetActive(true);
+                LTI.GOCardInTopLeft.SetActive(false);
+                LTI.gameObject.SetActive(false);
+
+                switch (CardType)
+                {
+                    case CARD_TYPES.BOMB:
+                        TrapBomb.enabled = true;
+                        break;
+
+                    case CARD_TYPES.JUMPIN:
+                        TrapJump.enabled = true;
+                        break;
+
+                    case CARD_TYPES.BLOCK:
+                        TrapBlock.enabled = true;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                FindObjectOfType<TurnManager>().NextTurn();
+            }
+            else
+            {
+
+                Patata.enabled = true;
+                GameManager.m_gameManager.UpdatePatatoPos(x, y);
+
+                if (x == 0 || x == 8)
+                {
+                    GameManager.m_gameManager.Win();
+                }
+                else
+                {
+                    FindObjectOfType<TurnManager>().NextTurn();
+                }
+
             }
 
-            FindObjectOfType<TurnManager>().NextTurn();
+        }
+        else
+        {
+            if (EnableTile && CheckTraps())
+            {
+                if (TrapJump.enabled)
+                {
+                    JumpEffect();
+                }
+                if (TrapBomb.enabled)
+                {
+                    BombEffect();
+                }
+                if (TrapBlock.enabled)
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
+                }
+                Debug.Log(GameManager.m_gameManager.PotatoPosition);
+                FindObjectOfType<TurnManager>().NextTurn();
+            }
+        }
+    }
 
+    private void JumpEffect()
+    {
+        Vector2 lastPosition = GameManager.m_gameManager.PotatoPosition;
+        if (lastPosition.x == x)
+        {
+            if (lastPosition.y != y)
+            {
+                if (lastPosition.y < y)
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x, y + 1);
+                }
+                else
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x, y - 1);
+                }
+            }
+        }
+        if (lastPosition.y == y)
+        {
+            if (lastPosition.x < x)
+            {
+                GameManager.m_gameManager.UpdatePatatoPos(x + 1, y);
+            }
+            else
+            {
+                GameManager.m_gameManager.UpdatePatatoPos(x - 1, y);
+            }
+        }
+        if (lastPosition.x != x && lastPosition.y != y)
+        {
+            if (lastPosition.x < x && lastPosition.y < y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y + 1);
+            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y - 1);
+            if (lastPosition.x < x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y - 1);
+            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y + 1);
+        }
+    }
+    private void BombEffect()
+    {
+        Vector2 lastPosition = GameManager.m_gameManager.PotatoPosition;
+        if (lastPosition.x == x)
+        {
+            if (lastPosition.y != y)
+            {
+                if (lastPosition.y < y)
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x, y - 1);
+                }
+                else
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x, y + 1);
+                }
+            }
+        }
+        if (lastPosition.y == y)
+        {
+            if (lastPosition.x < x)
+            {
+                GameManager.m_gameManager.UpdatePatatoPos(x - 1, y);
+            }
+            else
+            {
+                GameManager.m_gameManager.UpdatePatatoPos(x + 1, y);
+            }
+        }
+        if (lastPosition.x != x && lastPosition.y != y)
+        {
+            if (lastPosition.x < x && lastPosition.y < y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y - 1);
+            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y + 1);
+            if (lastPosition.x < x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y + 1);
+            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y - 1);
         }
     }
 
     bool CheckTraps()
     {
-        return TrapJump.enabled || TrapBlock.enabled || TrapBomb.enabled;
+        return TrapJump.enabled || TrapBlock.enabled || TrapBomb.enabled || Patata.enabled;
     }
 }
