@@ -11,7 +11,7 @@ public class CardManager : MonoBehaviour
     [SerializeField]
     private Dictionary<CARD_TYPES, int> CardDeck = new Dictionary<CARD_TYPES, int>();
 
-    private GameObject TopImage;
+    private GameObject DownPanel;
 
     private GameObject LeftImage;
     private GameObject RightImage;
@@ -19,6 +19,7 @@ public class CardManager : MonoBehaviour
 
     public GameObject PotatoBombPrefab = null;
     public GameObject PotatoJumpinPrefab = null;
+    public GameObject PotatoBlockPrefab = null;
 
     private void Awake()
     {
@@ -33,11 +34,15 @@ public class CardManager : MonoBehaviour
             InitCardDeck();
         }
     }
-
+    private void OnEnable()
+    {
+        DownPanel = GameObject.Find("DownPanel");
+    }
     void InitCardDeck()
     {
         CardDeck.Add(CARD_TYPES.BOMB, Const.MAX_BOMBCARD_TYPE);
         CardDeck.Add(CARD_TYPES.JUMPIN, Const.MAX_JUMPINCARD_TYPE);
+        CardDeck.Add(CARD_TYPES.BLOCK, Const.MAX_BLOCKCARD_TYPE);
     }
 
 
@@ -46,7 +51,7 @@ public class CardManager : MonoBehaviour
         List<CARD_TYPES> TotalCards = CreateCardTypeList();
         TotalCards = RandomizeDeck(TotalCards);
         CARD_TYPES type = TotalCards[Random.Range(0, TotalCards.Count)];
-        Debug.Log(type);
+        //Debug.Log(type);
         TotalCards.Remove(type);
         player.AddCardToPlayer(DrawCardOfSpecificType(type));
 
@@ -84,15 +89,62 @@ public class CardManager : MonoBehaviour
         }
         return TotalCards;
     }
+    public void DeactivateCards()
+    {
+        PotatoBombCard[] potatosbombs = GameObject.FindObjectsOfType<PotatoBombCard>();
+        PotatoJumpinCard[] potatosJumpin = GameObject.FindObjectsOfType<PotatoJumpinCard>();
+        PotatoBlockCard[] potatosBlock = GameObject.FindObjectsOfType<PotatoBlockCard>();
 
-    internal void LoadSceneVariables(GameObject cardCanvas, Player localPlayer)
+        foreach (PotatoBombCard c in potatosbombs)
+        {
+            c.IsEnable = false;
+        }
+
+        foreach (PotatoJumpinCard c in potatosJumpin)
+        {
+            c.IsEnable = false;
+        }
+
+        foreach (PotatoBlockCard c in potatosBlock)
+        {
+            c.IsEnable = false;
+        }
+    }
+
+    public void ActivateCards()
     {
 
-        DrawCard(localPlayer);
-        DrawCard(localPlayer);
-        DrawCard(localPlayer);
+        PotatoBombCard[] potatosbombs = GameObject.FindObjectsOfType<PotatoBombCard>();
+        PotatoJumpinCard[] potatosJumpin = GameObject.FindObjectsOfType<PotatoJumpinCard>();
+        PotatoBlockCard[] potatosBlock = GameObject.FindObjectsOfType<PotatoBlockCard>();
 
-        TopImage = GameObject.Find("TopImage");
+        foreach (PotatoBombCard c in potatosbombs)
+        {
+            c.IsEnable = true;
+        }
+
+        foreach (PotatoJumpinCard c in potatosJumpin)
+        {
+            c.IsEnable = true;
+        }
+
+        foreach (PotatoBlockCard c in potatosBlock)
+        {
+            c.IsEnable = true;
+        }
+    }
+
+    internal void LoadSceneVariables(bool cardEnable)
+    {
+        DownPanel.SetActive(true);
+
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Card");
+        for (int i = 0; i < gos.Length; i++)
+        {
+            Destroy(gos[i]);
+        }
+
+        //TopImage = GameObject.Find("TopImage");
         MiddleImage = GameObject.Find("MiddleImage");
         RightImage = GameObject.Find("RightImage");
         LeftImage = GameObject.Find("LeftImage");
@@ -100,19 +152,23 @@ public class CardManager : MonoBehaviour
         GameObject[] UIDownCards = { LeftImage, MiddleImage, RightImage };
 
 
-        for (int i = 0; i < localPlayer.m_playerCards.Length; i++)
+        for (int i = 0; i < GameManager.m_gameManager.LocalPlayer.m_playerCards.Length; i++)
         {
-            if (localPlayer.m_playerCards[i] == null)
+            if (GameManager.m_gameManager.LocalPlayer.m_playerCards[i] == null)
             {
                 break;
             }
             else
             {
-                switch (localPlayer.m_playerCards[i].Type)
+                switch (GameManager.m_gameManager.LocalPlayer.m_playerCards[i].Type)
                 {
                     case CARD_TYPES.BOMB:
                         prefabtoinstantiate = PotatoBombPrefab;
                         break;
+                    case CARD_TYPES.BLOCK:
+                        prefabtoinstantiate = PotatoBlockPrefab;
+                        break;
+                    
                     case CARD_TYPES.JUMPIN:
                         prefabtoinstantiate = PotatoJumpinPrefab;
                         break;
@@ -134,6 +190,8 @@ public class CardManager : MonoBehaviour
 
                     go.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
 
+
+                    go.tag = "Card";
                     go.name = "Card " + UIDownCards[i].name;
                 }
             }
@@ -153,6 +211,11 @@ public class CardManager : MonoBehaviour
                 GameObject g = new GameObject();
                 PotatoJumpinCard pB = g.AddComponent<PotatoJumpinCard>();
                 return pB;
+            
+            case CARD_TYPES.BLOCK:
+                GameObject gb = new GameObject();
+                PotatoBlockCard pBb = gb.AddComponent<PotatoBlockCard>();
+                return pBb;
 
             default:
                 return null;
@@ -164,5 +227,5 @@ public class CardManager : MonoBehaviour
 
 public enum CARD_TYPES
 {
-    BOMB, JUMPIN
+    BOMB, JUMPIN, BLOCK
 }

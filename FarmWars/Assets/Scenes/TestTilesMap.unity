@@ -4025,7 +4025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GOCardInTopLeft: {fileID: 0}
-  CardInTop: {fileID: 0}
+  CardInTopLeft: {fileID: 0}
+  DownPanel: {fileID: 0}
 --- !u!1 &1144584346
 GameObject:
   m_ObjectHideFlags: 0
@@ -5476,6 +5477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PotatoBombPrefab: {fileID: 62353541728559093, guid: b4675378ec8548641aa2a83565120768, type: 3}
   PotatoJumpinPrefab: {fileID: 62353541728559093, guid: b3d6355a3b65750438308fc70d61f62e, type: 3}
+  PotatoBlockPrefab: {fileID: 62353541728559093, guid: 23632f7cf85cac448bced3ad029e9202, type: 3}
   _soundVolume: 0
   _effectsVolume: 0
   _lastWinner: {fileID: 0}

@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotatoBombCard : Card
+public class PotatoBlockCard : Card
 {
-    public PotatoBombCard()
-    {
 
-    }
 
     private void Awake()
     {
-        Type = CARD_TYPES.BOMB;
+        Type = CARD_TYPES.BLOCK;
     }
 
     public override void DoAction()
@@ -24,3 +21,4 @@ public class PotatoBombCard : Card
 
     }
 }
+

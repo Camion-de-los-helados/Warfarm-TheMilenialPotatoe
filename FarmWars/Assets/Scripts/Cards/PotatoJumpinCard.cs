@@ -11,8 +11,10 @@ public class PotatoJumpinCard : Card
 
     public override void DoAction()
     {
-        GameObject.FindObjectOfType<LeftTopImage>().CardInTopLeft = this;
-
-        GameObject.FindObjectOfType<LeftTopImage>().ShowCard();
+        if (IsEnable)
+        {
+            GameObject.FindObjectOfType<LeftTopImage>().CardInTopLeft = this;
+            GameObject.FindObjectOfType<LeftTopImage>().ShowCard();
+        }
     }
 }

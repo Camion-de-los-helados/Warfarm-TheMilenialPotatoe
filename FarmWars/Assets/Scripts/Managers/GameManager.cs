@@ -12,10 +12,14 @@ public class GameManager : MonoBehaviour
     public CardManager CardManager { get; private set; }
 
     [SerializeField]
-    private GameObject PotatoBombPrefab; 
+    private GameObject PotatoBombPrefab;
+
+    [SerializeField]
+    private GameObject PotatoJumpinPrefab;  
     
     [SerializeField]
-    private GameObject PotatoJumpinPrefab;
+    private GameObject PotatoBlockPrefab;
+
 
     #endregion
 
@@ -30,8 +34,8 @@ public class GameManager : MonoBehaviour
     [Header("MiniGames")]
     public GameObject _lastWinner;
     #endregion
-    private Player LocalPlayer;
-    private Player RemotePlayer;
+    public Player LocalPlayer;
+    public Player RemotePlayer;
 
     public Player LastMiniGameWinner;
 
@@ -51,8 +55,8 @@ public class GameManager : MonoBehaviour
         switch (activeScene.name)
         {
             case "TestTilesMap":
-                GameObject CardCanvas = GameObject.Find("CardCanvas");
-                CardManager.Instance.LoadSceneVariables(CardCanvas, LocalPlayer);
+                CardManager.Instance.LoadSceneVariables(true);
+         
                 break;
 
             default:
@@ -85,19 +89,23 @@ public class GameManager : MonoBehaviour
         //Instantiate(GO);
         GO.AddComponent(typeof(CardManager));
 
-        if(PotatoBombPrefab==null || PotatoJumpinPrefab == null)
+        if (PotatoBombPrefab == null || PotatoJumpinPrefab == null)
         {
             Debug.LogError("PREFAB NOT FOUND");
         }
-        
+
         CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
         CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
+        CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
 
         LocalPlayer = new Player();
         RemotePlayer = new Player();
 
         activeScene = SceneManager.GetActiveScene();
 
+        CardManager.Instance.DrawCard(LocalPlayer);
+        CardManager.Instance.DrawCard(LocalPlayer);
+        CardManager.Instance.DrawCard(LocalPlayer);
         SceneChanged();
 
 

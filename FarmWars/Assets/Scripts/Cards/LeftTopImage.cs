@@ -16,7 +16,7 @@ public class LeftTopImage : MonoBehaviour
     private Vector2 LastSizeDelta;
     private Transform LastParent;
 
-    GameObject DownPanel;
+    public GameObject DownPanel;
 
     public GameObject TopImage { get; private set; }
 
@@ -33,13 +33,12 @@ public class LeftTopImage : MonoBehaviour
         DownPanel = GameObject.Find("DownPanel");
         DownPanel.SetActive(false);
 
-
         if (GOCardInTopLeft != null)
         {
             Destroy(GOCardInTopLeft);
         }
-        GOCardInTopLeft = Instantiate(CardInTopLeft.gameObject);
 
+        GOCardInTopLeft = Instantiate(CardInTopLeft.gameObject);
 
         CopyObjectTransform(GOCardInTopLeft.gameObject);
 
@@ -64,11 +63,7 @@ public class LeftTopImage : MonoBehaviour
 
         BackButton.SetActive(true);
 
-
         GridManager.Instance.ActivateTiles();
-
-
-
 
     }
 
@@ -88,7 +83,11 @@ public class LeftTopImage : MonoBehaviour
         }
         DownPanel.SetActive(true);
 
+        CardManager.Instance.DeactivateCards();
+
         GridManager.Instance.DeactivateTiles();
         BackButton.SetActive(false);
     }
+
+
 }
