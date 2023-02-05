@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c502a613b2226e428a29af78f3bd785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   rb: {fileID: 364102730}
 --- !u!50 &364102730
 Rigidbody2D:
@@ -525,8 +524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rb: {fileID: 931637904}
+  rb: {fileID: 1533451019}
+  rb2: {fileID: 931637904}
 --- !u!50 &931637904
 Rigidbody2D:
   serializedVersion: 4
@@ -654,7 +653,7 @@ GameObject:
   - component: {fileID: 1119708950}
   - component: {fileID: 1119708951}
   m_Layer: 5
-  m_Name: LineGoalA
+  m_Name: LineGoal0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,9 +766,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119708947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4eb3ae7de45e1e48ae0cf8d7b47f5db, type: 3}
+  m_Script: {fileID: 11500000, guid: 83ae34ba0cc45ec44bded2f4c1d03dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
+  goalPongManager: {fileID: 1847406343}
 --- !u!1 &1241813086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,8 +1027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   rb: {fileID: 1262447855}
+  rb2: {fileID: 0}
 --- !u!1 &1369716364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,8 +1180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   rb: {fileID: 1369716365}
+  rb2: {fileID: 0}
 --- !u!1 &1533451017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,8 +1214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be82f2a766775043a6f9d1c85e8c81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   rb: {fileID: 1533451019}
+  rb2: {fileID: 931637904}
 --- !u!50 &1533451019
 Rigidbody2D:
   serializedVersion: 4
@@ -1342,7 +1343,7 @@ GameObject:
   - component: {fileID: 1552149290}
   - component: {fileID: 1552149291}
   m_Layer: 5
-  m_Name: LineGoalB
+  m_Name: LineGoal1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1455,9 +1456,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552149287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4eb3ae7de45e1e48ae0cf8d7b47f5db, type: 3}
+  m_Script: {fileID: 11500000, guid: 83ae34ba0cc45ec44bded2f4c1d03dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  goalPongManager: {fileID: 1847406343}
 --- !u!1 &1698229387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c502a613b2226e428a29af78f3bd785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
   rb: {fileID: 1698229388}
 --- !u!1 &1846742585
 GameObject:
@@ -1689,6 +1691,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1847406342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847406344}
+  - component: {fileID: 1847406343}
+  m_Layer: 0
+  m_Name: PotatongManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1847406343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847406342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4eb3ae7de45e1e48ae0cf8d7b47f5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerID0: 0
+  PlayerID1: 1
+--- !u!4 &1847406344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847406342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4098791, y: -0.4332593, z: 0.034417287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974442587
 GameObject:
