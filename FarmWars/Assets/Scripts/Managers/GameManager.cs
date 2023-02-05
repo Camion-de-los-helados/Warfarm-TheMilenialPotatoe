@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
             CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
             CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
 
-            CardManager.Instance.DrawCard(LastMiniGameWinner);
+            //CardManager.Instance.DrawCard(LastMiniGameWinner);
 
         }
     }
@@ -110,14 +110,25 @@ public class GameManager : MonoBehaviour
     {
         GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile);
         tile.Patata.enabled = false;
+
         PotatoPosition = new Vector2Int(x, y);
-        //GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile2)
-        //tile2.Patata.enabled = true;
+
+        GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile2);
+        tile2.Patata.enabled = true;
     }
 
     internal void Win()
     {
         // actual player winner
+    }
+
+    public Player GetPlayer(int id)
+    {
+        if (id == 0)
+            return PlayerOne;
+        else
+            return PlayerTwo;
+
     }
 }
 

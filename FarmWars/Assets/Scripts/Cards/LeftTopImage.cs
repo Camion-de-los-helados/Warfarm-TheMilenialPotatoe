@@ -84,7 +84,7 @@ public class LeftTopImage : MonoBehaviour
         }
         DownPanel.SetActive(true);
 
-        CardManager.Instance.DeactivateCards();
+        //CardManager.Instance.DeactivateCards();
 
         GridManager.Instance.DeactivateTiles();
         BackButton.SetActive(false);

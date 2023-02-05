@@ -41,7 +41,7 @@ public class Player
 
     }
 
-    private void ReorderCardsInHand()
+    public void ReorderCardsInHand()
     {
         for (int i = 0; i < Const.MAX_CARDS_PER_PLAYER; i++)
         {

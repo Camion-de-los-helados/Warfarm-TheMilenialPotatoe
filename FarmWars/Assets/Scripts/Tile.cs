@@ -68,7 +68,7 @@ public class Tile : MonoBehaviour
                 CARD_TYPES CardType = LTI.CardInTopLeft.Type;
                 LTI.enabled = false;
 
-                GameManager.m_gameManager.PlayerOne.RemoveOneCardFromPlayer(CardType);
+                GameObject.FindObjectOfType<TurnManager>().ActualPlayer.RemoveOneCardFromPlayer(CardType);
 
                 LTI.DownPanel.SetActive(true);
                 LTI.GOCardInTopLeft.SetActive(false);
@@ -93,6 +93,7 @@ public class Tile : MonoBehaviour
                 }
 
                 FindObjectOfType<TurnManager>().NextTurn();
+                CardManager.Instance.LoadSceneVariables(true, GameObject.FindObjectOfType<TurnManager>().ActualPlayer);
             }
             else
             {

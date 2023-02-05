@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour
 {
-    Player ActualPlayer;
+    public Player ActualPlayer;
     public bool BothPlayersPlayed = false;
 
     public GameObject LeftTopImage;
@@ -21,7 +21,7 @@ public class TurnManager : MonoBehaviour
         if (PotatoMoved)
         {
             int minigame = Random.Range(2, 5);
-            GameManager.m_gameManager.LoadScene(minigame);
+            GameManager.m_gameManager.LoadScene(Const.HOT_POTATO_SCENE_ID);
         }
         else if (BothPlayersPlayed)
         {
@@ -53,14 +53,15 @@ public class TurnManager : MonoBehaviour
                 ActualPlayer = GameManager.m_gameManager.PlayerOne;
             }
 
-            Debug.Log(ActualPlayer.ID);
+            //Debug.Log(ActualPlayer.ID);
             TextP.text = "P" + (ActualPlayer.ID + 1);
 
             sR.sprite = NewSprite;
 
             CardManager.Instance.DrawCard(ActualPlayer);
+            CardManager.Instance.DrawCard(ActualPlayer);
 
-            CardManager.Instance.LoadSceneVariables(true, ActualPlayer);
+
             BothPlayersPlayed = true;
 
             LeftTopImage.SetActive(true);
@@ -73,13 +74,17 @@ public class TurnManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GridManager.Instance);
-        Debug.Log(GameManager.m_gameManager.PotatoPosition);
 
-        GridManager.Instance.GetTileAtPosition(GameManager.m_gameManager.PotatoPosition).Patata.enabled = true;
-
+        //GridManager.Instance.GetTileAtPosition(GameManager.m_gameManager.PotatoPosition).Patata.enabled = true;
         ActualPlayer = GameManager.m_gameManager.LastMiniGameWinner;
+        CardManager.Instance.DrawCard(ActualPlayer);
+
+        GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
+
         CardManager.Instance.LoadSceneVariables(true, ActualPlayer);
+        GridManager.Instance.DeactivateTiles();
+        CardManager.Instance.ActivateCards();
+        TextP.text = "P" + (ActualPlayer.ID + 1);
     }
 
 

@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager Instance { get; private set; }
 
-    [SerializeField]
+
     private Dictionary<CARD_TYPES, int> CardDeck = new Dictionary<CARD_TYPES, int>();
 
     private GameObject DownPanel;
@@ -50,9 +50,19 @@ public class CardManager : MonoBehaviour
     {
         List<CARD_TYPES> TotalCards = CreateCardTypeList();
         TotalCards = RandomizeDeck(TotalCards);
+        Debug.Log(TotalCards.Count);
+        Debug.Log(CardDeck.Count);
         CARD_TYPES type = TotalCards[Random.Range(0, TotalCards.Count)];
+
         //Debug.Log(type);
-        TotalCards.Remove(type);
+        for (int i = 0; i < TotalCards.Count; i++)
+        {
+            if (TotalCards[i] == type)
+            {
+                TotalCards.RemoveAt(i);
+                break;
+            }
+        }
         player.AddCardToPlayer(DrawCardOfSpecificType(type));
 
         //return DrawCardOfSpecificType(type);
@@ -82,8 +92,8 @@ public class CardManager : MonoBehaviour
             for (int j = 0; j < NumberOfCards; j++)
             {
                 TotalCards.Add(TotalTypes[i]);
-                int nCards = NumberOfCards - 1;
-                CardDeck[TotalTypes[i]] = nCards;
+                //int nCards = NumberOfCards - 1;
+                //CardDeck[TotalTypes[i]] = nCards;
             }
 
         }
@@ -136,6 +146,7 @@ public class CardManager : MonoBehaviour
 
     internal void LoadSceneVariables(bool cardEnable, Player player)
     {
+        DownPanel = GameObject.Find("DownPanel");
         DownPanel.SetActive(true);
 
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Card");
@@ -151,6 +162,7 @@ public class CardManager : MonoBehaviour
         GameObject prefabtoinstantiate = null;
         GameObject[] UIDownCards = { LeftImage, MiddleImage, RightImage };
 
+        player.ReorderCardsInHand();
 
         for (int i = 0; i < player.m_playerCards.Length; i++)
         {
@@ -168,7 +180,7 @@ public class CardManager : MonoBehaviour
                     case CARD_TYPES.BLOCK:
                         prefabtoinstantiate = PotatoBlockPrefab;
                         break;
-                    
+
                     case CARD_TYPES.JUMPIN:
                         prefabtoinstantiate = PotatoJumpinPrefab;
                         break;
@@ -211,7 +223,7 @@ public class CardManager : MonoBehaviour
                 GameObject g = new GameObject();
                 PotatoJumpinCard pB = g.AddComponent<PotatoJumpinCard>();
                 return pB;
-            
+
             case CARD_TYPES.BLOCK:
                 GameObject gb = new GameObject();
                 PotatoBlockCard pBb = gb.AddComponent<PotatoBlockCard>();

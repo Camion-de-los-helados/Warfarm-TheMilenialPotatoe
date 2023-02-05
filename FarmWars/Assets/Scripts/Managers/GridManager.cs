@@ -21,6 +21,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile TilePrefab;
     [SerializeField] private Transform Camera;
 
+
+
     public Dictionary<Vector2, Tile> TilesDictionary { get; private set; }
 
     private void Awake()
@@ -36,9 +38,16 @@ public class GridManager : MonoBehaviour
             DontDestroyOnLoad(this);
 
             Instance = this;
+            GridManager.Instance.GenerateGrid();
+
 
         }
     }
+
+    //private void Update()
+    //{
+    //    Debug.Log(TilesDictionary);
+    //}
 
 
     public void EnableSpecificTile(int x, int y)
@@ -50,7 +59,7 @@ public class GridManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        GenerateGrid();
+        //GenerateGrid();
     }
 
     public void ActivateTiles()
@@ -67,46 +76,92 @@ public class GridManager : MonoBehaviour
                 GetTileAtPosition(new Vector2(i, j)).EnableTile = false;
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
-        TilesDictionary = new Dictionary<Vector2, Tile>();
-
-
         GameObject emptyParentTiles = Instantiate(new GameObject());
         emptyParentTiles.name = "Tiles";
+        emptyParentTiles.transform.SetParent(gameObject.transform);
 
+        //DontDestroyOnLoad(spawnedPrefab.gameObject);
         float actualPosX = initXPos;
         float actualPosY = initYPos;
-        Tile spawnedPrefab = null;
-
-        for (int y = 0; y < Height; y++)
+        if (TilesDictionary == null)
         {
-            actualPosX = initXPos;
 
-            for (int x = 0; x < Width; x++)
+            TilesDictionary = new Dictionary<Vector2, Tile>();
+
+            Tile spawnedPrefab = null;
+
+            for (int y = 0; y < Height; y++)
             {
-                spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
+                actualPosX = initXPos;
 
-                spawnedPrefab.name = "tile" + x + " " + y;
-                spawnedPrefab.transform.localScale = new Vector3(scale, scale, 0);
+                for (int x = 0; x < Width; x++)
+                {
+                    spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
+                    //DontDestroyOnLoad(spawnedPrefab.gameObject);
 
-                spawnedPrefab.x = x;
-                spawnedPrefab.y = y;
 
-                var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
-                spawnedPrefab.Init(IsOffset);
+                    spawnedPrefab.name = "tile" + x + " " + y;
+                    spawnedPrefab.transform.localScale = new Vector3(scale, scale, 0);
 
-                spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
-                actualPosX += spawnedPrefab.GetSizeofRenderer().y;
+                    spawnedPrefab.x = x;
+                    spawnedPrefab.y = y;
 
-                TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
+                    var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
+                    spawnedPrefab.Init(IsOffset);
+
+                    spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
+                    actualPosX += spawnedPrefab.GetSizeofRenderer().y;
+
+                    TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
+
+                }
+
+                actualPosY += spawnedPrefab.GetSizeofRenderer().x;
+
 
             }
-
-            actualPosY += spawnedPrefab.GetSizeofRenderer().x;
-
-
         }
+        //else
+        //{
+        //    Tile tile = null;
+        //    for (int y = 0; y < Height; y++)
+        //    {
+        //        actualPosX = initXPos;
+
+        //        for (int x = 0; x < Width; x++)
+        //        {
+        //            TilesDictionary.TryGetValue(new Vector2(x, y), out tile);
+
+        //            GameObject ti = new GameObject();
+
+        //            Tile temp = ti.AddComponent<Tile>();
+        //            temp = tile;
+
+        //            ti = Instantiate(ti, new Vector3(actualPosX, actualPosY), Quaternion.identity);
+
+        //            ti.name = "tile" + x + " " + y;
+        //            ti.transform.localScale = new Vector3(scale, scale, 0);
+
+        //            tile.x = x;
+        //            tile.y = y;
+
+        //            var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
+        //            tile.Init(IsOffset);
+
+        //            ti.transform.SetParent(emptyParentTiles.transform);
+        //            actualPosX += tile.GetSizeofRenderer().y;
+
+        //            //TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
+
+        //        }
+
+        //        actualPosY += tile.GetSizeofRenderer().x;
+
+
+        //    }
+        //}
 
         //Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
 

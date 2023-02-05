@@ -2515,36 +2515,6 @@ MonoBehaviour:
   - Sprite: {fileID: -84312971, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
     KeyCode: 109
     IsPressed: 0
-  - Sprite: {fileID: -1715648435, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 257
-    IsPressed: 0
-  - Sprite: {fileID: -1133894202, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 258
-    IsPressed: 0
-  - Sprite: {fileID: -835925364, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 259
-    IsPressed: 0
-  - Sprite: {fileID: -824321619, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 260
-    IsPressed: 0
-  - Sprite: {fileID: -1519162960, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 261
-    IsPressed: 0
-  - Sprite: {fileID: -1136465919, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 262
-    IsPressed: 0
-  - Sprite: {fileID: -739078788, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 263
-    IsPressed: 0
-  - Sprite: {fileID: -676668407, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 264
-    IsPressed: 0
-  - Sprite: {fileID: 2037196632, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 265
-    IsPressed: 0
-  - Sprite: {fileID: -1483208722, guid: 4fae50a4b0666b54c9bf3040626f045e, type: 3}
-    KeyCode: 256
-    IsPressed: 0
   SpritesRendrersPlayerP0:
   - {fileID: 118574000}
   - {fileID: 1514326024}

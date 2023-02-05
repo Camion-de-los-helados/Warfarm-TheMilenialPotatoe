@@ -36,7 +36,8 @@ public static class Const
 
     public const int SCENE_MAP = 1;
 
-    public const int HOT_POTATO_SCENE_ID = 4;
+    public const int HOT_POTATO_SCENE_ID = 5;
+    public const int PEAL_POTATO_SCENE_ID = 4;
     public const int PATATONG_SCENE_ID = 3;
     public const int TIROPATATA_SCENE_ID = 2;
 }

@@ -34,5 +34,18 @@ public class Win : MonoBehaviour
             image.sprite = p2Sprite;
         }
         canvas.GetComponent<Canvas>().enabled = true;
+
+        GameManager.m_gameManager.LastMiniGameWinner = GameManager.m_gameManager.GetPlayer(playerID);
+
+
+        StartCoroutine(GoToMainMenu());
+    }
+
+    IEnumerator GoToMainMenu()
+    {
+
+        yield return new WaitForSeconds(3);
+
+        GameManager.m_gameManager.LoadScene(Const.SCENE_MAP);
     }
 }
