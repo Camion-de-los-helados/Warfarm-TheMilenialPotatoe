@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class HotPotatoManager : MonoBehaviour
 {
-    private int CurrentPlayer;
+    [SerializeField] private int CurrentPlayer;
     bool HasTurnFinished = false;
     [SerializeField] public float Timer = 0.0f;
     [SerializeField] public float MaxTime = 300.0f;
     [SerializeField] public float PenalisationTime = 20.0f;
+    [SerializeField] public Sprite[] spritesPatato;
+    [SerializeField] public SpriteRenderer ActualSprite;
+    [SerializeField] public Sprite[] BackGrounds;
+    [SerializeField] public SpriteRenderer BackgroundGame;
 
+    private float animationTime = 1.0f;
+    private float auxTimer = 0.0f;
     private void Awake()
     {
         PlayerSelected();
@@ -19,24 +25,78 @@ public class HotPotatoManager : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
+        float range = MaxTime / 6;
+        if (Timer < range)
+        {
+            ActualSprite.sprite = spritesPatato[0];
+        }
+        else if (Timer > range && Timer < range * 2) 
+        {
+            ActualSprite.sprite = spritesPatato[1];
+        }
+        else if (Timer > range * 2 && Timer < range * 3)
+        {
+            ActualSprite.sprite = spritesPatato[2];
+        }
+        else if (Timer > range * 3 && Timer < range * 4)
+        {
+            ActualSprite.sprite = spritesPatato[3];
+        }
+        else if (Timer > range * 4 && Timer < range * 5)
+        {
+            ActualSprite.sprite = spritesPatato[4];
+        }
+        else if (Timer > range * 5)
+        {
+            ActualSprite.sprite = spritesPatato[5];
+        }
+
+
         if (Timer > MaxTime) 
         {
-            int winPlayer; 
-            if (CurrentPlayer == 0)
+            auxTimer += Time.deltaTime;
+            float rangeAnimation = animationTime / 5;
+            if (auxTimer < rangeAnimation)
             {
-                winPlayer = 1;
+                ActualSprite.sprite = spritesPatato[6];
             }
-            else
+            else if (auxTimer > rangeAnimation && auxTimer < rangeAnimation * 2)
             {
-                winPlayer = 0;
+                ActualSprite.sprite = spritesPatato[7];
             }
-            //GameManager.m_gameManager._lastWinner(winPlayer);
+            else if (auxTimer > rangeAnimation * 2 && auxTimer < rangeAnimation * 3)
+            {
+                ActualSprite.sprite = spritesPatato[8];
+            }
+            else if (auxTimer > rangeAnimation * 3 && auxTimer < rangeAnimation * 4)
+            {
+                ActualSprite.sprite = spritesPatato[9];
+            }
+            else if (auxTimer > animationTime * 4 && auxTimer < rangeAnimation * 5)
+            {
+                ActualSprite.sprite = spritesPatato[10];
+            }
+            else if (auxTimer > animationTime * 5)
+            {
+
+                int winPlayer;
+                if (CurrentPlayer == 0)
+                {
+                    winPlayer = 1;
+                }
+                else
+                {
+                    winPlayer = 0;
+                }
+                //GameManager.m_gameManager._lastWinner(winPlayer);
+            }
         }
     }
 
     public void PlayerSelected()
     {
-        CurrentPlayer = Random.Range(0, 1);
+        CurrentPlayer = 0;
+        BackgroundGame.sprite = BackGrounds[CurrentPlayer];
     }
 
     public int GetCurrentPlayer()
@@ -55,10 +115,12 @@ public class HotPotatoManager : MonoBehaviour
         if (CurrentPlayer == 0)
         {
             CurrentPlayer = 1;
+            BackgroundGame.sprite = BackGrounds[CurrentPlayer];
         }
         else 
         {
             CurrentPlayer = 0;
+            BackgroundGame.sprite = BackGrounds[CurrentPlayer];
         }
     }
 
@@ -67,8 +129,9 @@ public class HotPotatoManager : MonoBehaviour
         HasTurnFinished = false;
     }
 
-    public void AddTime() 
+    public void AddTime()
     {
+        Debug.Log("ADD TIME");
         Timer += PenalisationTime; 
     }
 }

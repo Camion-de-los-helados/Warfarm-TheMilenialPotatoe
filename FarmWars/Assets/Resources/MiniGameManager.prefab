@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e06fdb592e05e743bf9acd256b72f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentPlayer: 0
   Timer: 0
   MaxTime: 300
   PenalisationTime: 20
+  spritesPatato: []
+  ActualSprite: {fileID: 0}
+  BackGrounds: []
+  BackgroundGame: {fileID: 0}
 --- !u!114 &6170724941601666013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +115,7 @@ MonoBehaviour:
   authorityTransferType: 2
   orphanedBehavior: 0
   lifetimeType: 0
-  uniquenessType: 0
+  uniquenessType: 1
   coherenceUUID: 
   destructionBehavior: 0
   preserveChildren: 0
