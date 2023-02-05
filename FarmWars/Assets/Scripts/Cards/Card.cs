@@ -33,12 +33,14 @@ public abstract class Card : MonoBehaviour, ICard
 
     void OnMouseOver()
     {
-        ZoomCard();
+        if (IsEnable)
+            ZoomCard();
     }
 
     void OnMouseExit()
     {
-        ZoomOutCard();
+        if (IsEnable)
+            ZoomOutCard();
     }
 
 

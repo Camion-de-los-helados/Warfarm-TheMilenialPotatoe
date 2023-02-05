@@ -192,6 +192,7 @@ public class CardManager : MonoBehaviour
                 if (prefabtoinstantiate != null)
                 {
                     GameObject go = Instantiate(prefabtoinstantiate);
+                    go.GetComponent<Card>().IsEnable = cardEnable;
                     go.transform.position = UIDownCards[i].transform.position;
                     go.transform.rotation = UIDownCards[i].transform.rotation;
 
