@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
+            PlayerOne = new Player(0);
+            PlayerTwo = new Player(1);
             PotatoPosition = new Vector2Int(4, 2);
 
             //m_gridManager = GridManager.Instance;
@@ -81,8 +82,7 @@ public class GameManager : MonoBehaviour
             GO.AddComponent(typeof(CardManager));
             m_gameManager = this;
 
-            PlayerOne = new Player(0);
-            PlayerTwo = new Player(1);
+            
             LastMiniGameWinner = PlayerOne;
 
             CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
@@ -120,6 +120,14 @@ public class GameManager : MonoBehaviour
     internal void Win()
     {
         // actual player winner
+        if (LastMiniGameWinner.ID == 0)
+        {
+            LoadScene(Const.PLAYER1_WIN);
+        }
+        else
+        {
+            LoadScene(Const.PLAYER2_WIN);
+        }
     }
 
     public Player GetPlayer(int id)

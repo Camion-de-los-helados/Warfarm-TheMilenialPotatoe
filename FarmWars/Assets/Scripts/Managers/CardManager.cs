@@ -34,9 +34,10 @@ public class CardManager : MonoBehaviour
             InitCardDeck();
         }
     }
-    private void OnEnable()
+    private void Start()
     {
         DownPanel = GameObject.Find("DownPanel");
+     
     }
     void InitCardDeck()
     {

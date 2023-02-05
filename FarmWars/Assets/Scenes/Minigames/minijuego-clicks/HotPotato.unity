@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103293081}
   - component: {fileID: 103293082}
+  - component: {fileID: 103293083}
   m_Layer: 0
   m_Name: ManageGame
   m_TagString: Untagged
@@ -305,7 +306,7 @@ MonoBehaviour:
   ActualClick1: 0
   ActualClick2: 0
   text: {fileID: 0}
-  win: {fileID: 1717852175}
+  win: {fileID: 103293083}
   images:
   - {fileID: 1717852172}
   - {fileID: 620263883}
@@ -331,6 +332,23 @@ MonoBehaviour:
   button1: {fileID: 917052603}
   button2: {fileID: 1476179404}
   canvasInitial: {fileID: 146605450}
+--- !u!114 &103293083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103293080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b7a888ff4851e4ebaf71f45ac20a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1134890214}
+  tmp: {fileID: 70071901}
+  image: {fileID: 1064370153}
+  p1Sprite: {fileID: 21300000, guid: 81d35cde72503ed42822946f329b193a, type: 3}
+  p2Sprite: {fileID: 21300000, guid: 0aaad5bcef4eadb46a58f83522b1c505, type: 3}
 --- !u!1 &146605450
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +462,6 @@ GameObject:
   - component: {fileID: 620263882}
   - component: {fileID: 620263884}
   - component: {fileID: 620263883}
-  - component: {fileID: 620263886}
   m_Layer: 5
   m_Name: Potato_B
   m_TagString: Untagged
@@ -510,23 +527,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620263881}
   m_CullTransparentMesh: 1
---- !u!114 &620263886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620263881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b7a888ff4851e4ebaf71f45ac20a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1134890214}
-  tmp: {fileID: 70071901}
-  image: {fileID: 1064370153}
-  p1Sprite: {fileID: 21300000, guid: 81d35cde72503ed42822946f329b193a, type: 3}
-  p2Sprite: {fileID: 21300000, guid: 0aaad5bcef4eadb46a58f83522b1c505, type: 3}
 --- !u!1 &686546431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,6 @@ GameObject:
   - component: {fileID: 1717852171}
   - component: {fileID: 1717852173}
   - component: {fileID: 1717852172}
-  - component: {fileID: 1717852175}
   m_Layer: 5
   m_Name: Potato_A
   m_TagString: Untagged
@@ -1429,23 +1428,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717852170}
   m_CullTransparentMesh: 1
---- !u!114 &1717852175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717852170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b7a888ff4851e4ebaf71f45ac20a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1134890214}
-  tmp: {fileID: 70071901}
-  image: {fileID: 1064370153}
-  p1Sprite: {fileID: 21300000, guid: 81d35cde72503ed42822946f329b193a, type: 3}
-  p2Sprite: {fileID: 21300000, guid: 0aaad5bcef4eadb46a58f83522b1c505, type: 3}
 --- !u!1 &2010907354
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,11 +20,20 @@ public class TurnManager : MonoBehaviour
     {
         if (PotatoMoved)
         {
-            GridManager.Instance.DeActivateTilesObject();
 
-            int minigame = Random.Range(2, 5);
+            if (GameManager.m_gameManager.PotatoPosition.x == 0 || GameManager.m_gameManager.PotatoPosition.y == 8)
+            {
+                GameManager.m_gameManager.Win();
+            }
+            else
+            {
+                GridManager.Instance.DeActivateTilesObject();
 
-            GameManager.m_gameManager.LoadScene(Const.HOT_POTATO_SCENE_ID);
+                int minigame = Random.Range(2, 6);
+                Debug.Log(minigame);
+
+                GameManager.m_gameManager.LoadScene(minigame);
+            }
         }
         else if (BothPlayersPlayed)
         {
@@ -62,7 +71,6 @@ public class TurnManager : MonoBehaviour
             sR.sprite = NewSprite;
 
             CardManager.Instance.DrawCard(ActualPlayer);
-            CardManager.Instance.DrawCard(ActualPlayer);
 
 
             BothPlayersPlayed = true;
@@ -79,7 +87,10 @@ public class TurnManager : MonoBehaviour
     {
 
         //GridManager.Instance.GetTileAtPosition(GameManager.m_gameManager.PotatoPosition).Patata.enabled = true;
-        ActualPlayer = GameManager.m_gameManager.LastMiniGameWinner;
+        ActualPlayer = GameManager.m_gameManager.GetPlayer(GameManager.m_gameManager.LastMiniGameWinner.ID == 1 ? 0 : 1);
+
+        CardManager.Instance.DrawCard(GameManager.m_gameManager.LastMiniGameWinner);
+        CardManager.Instance.DrawCard(ActualPlayer);
         CardManager.Instance.DrawCard(ActualPlayer);
 
         GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);

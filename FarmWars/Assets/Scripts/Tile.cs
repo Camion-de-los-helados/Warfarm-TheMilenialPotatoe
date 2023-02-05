@@ -104,7 +104,7 @@ public class Tile : MonoBehaviour
                 Patata.enabled = true;
                 GameManager.m_gameManager.UpdatePatatoPos(x, y);
 
-                if (x == 0 || x == 8)
+                if (GameManager.m_gameManager.PotatoPosition.x == 0 || GameManager.m_gameManager.PotatoPosition.y == 8)
                 {
                     GameManager.m_gameManager.Win();
                 }

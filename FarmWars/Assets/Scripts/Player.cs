@@ -21,8 +21,11 @@ public class Player
 
     public void AddCardToPlayer(Card card)
     {
-        m_playerCards[NumberOfCardsInHand] = card;
-        NumberOfCardsInHand++;
+        if (NumberOfCardsInHand < m_playerCards.Length)
+        {
+            m_playerCards[NumberOfCardsInHand] = card;
+            NumberOfCardsInHand++;
+        }
     }
     public void RemoveOneCardFromPlayer(CARD_TYPES CardType)
     {

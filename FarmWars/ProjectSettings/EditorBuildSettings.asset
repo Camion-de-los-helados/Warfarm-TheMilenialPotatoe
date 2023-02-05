@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/HotPotatoe.unity
     guid: cd1750a194db3224691d52f76a4cfb62
+  - enabled: 1
+    path: Assets/Scenes/PLAYER 1 WIN.unity
+    guid: cafa0faa35bafef4c81ee14f70cf2609
+  - enabled: 1
+    path: Assets/Scenes/PLAYER 2 WIN.unity
+    guid: 80c3b4f16e0ca114aaebd31b1c1bc110
   m_configObjects:
     io.coherence.simulator.build.options: {fileID: 11400000, guid: 6767f04400a008f458cf265c555d4385, type: 2}
