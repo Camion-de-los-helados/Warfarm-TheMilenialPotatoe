@@ -20,7 +20,10 @@ public class TurnManager : MonoBehaviour
     {
         if (PotatoMoved)
         {
+            GridManager.Instance.DeActivateTilesObject();
+
             int minigame = Random.Range(2, 5);
+
             GameManager.m_gameManager.LoadScene(Const.HOT_POTATO_SCENE_ID);
         }
         else if (BothPlayersPlayed)
@@ -28,7 +31,7 @@ public class TurnManager : MonoBehaviour
             PotatoMoved = true;
 
             GridManager.Instance.DeactivateTiles();
-
+            CardManager.Instance.DeactivateCards();
 
             Vector2Int PPosition = GameManager.m_gameManager.PotatoPosition;
 
@@ -82,6 +85,7 @@ public class TurnManager : MonoBehaviour
         GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
 
         CardManager.Instance.LoadSceneVariables(true, ActualPlayer);
+        GridManager.Instance.ActivateTilesObject();
         GridManager.Instance.DeactivateTiles();
         CardManager.Instance.ActivateCards();
         TextP.text = "P" + (ActualPlayer.ID + 1);

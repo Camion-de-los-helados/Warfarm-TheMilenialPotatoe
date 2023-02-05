@@ -21,9 +21,18 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile TilePrefab;
     [SerializeField] private Transform Camera;
 
-
-
     public Dictionary<Vector2, Tile> TilesDictionary { get; private set; }
+
+    private GameObject TilesParent;
+    public void ActivateTilesObject()
+    {
+        TilesParent.SetActive(true);
+    }
+
+    public void DeActivateTilesObject()
+    {
+        TilesParent.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -79,6 +88,7 @@ public class GridManager : MonoBehaviour
     public void GenerateGrid()
     {
         GameObject emptyParentTiles = Instantiate(new GameObject());
+        TilesParent = emptyParentTiles;
         emptyParentTiles.name = "Tiles";
         emptyParentTiles.transform.SetParent(gameObject.transform);
 
