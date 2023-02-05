@@ -110,8 +110,8 @@ public class GameManager : MonoBehaviour
         CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
         CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
 
-        //LocalPlayer = new Player(0);
-        //RemotePlayer = new Player(1);
+        LocalPlayer = new Player(0);
+        RemotePlayer = new Player(1);
         activeScene = SceneManager.GetActiveScene();
 
         CardManager.Instance.DrawCard (LocalPlayer);
