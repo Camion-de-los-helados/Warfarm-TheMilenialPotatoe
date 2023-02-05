@@ -64,6 +64,7 @@ public class GridManager : MonoBehaviour
         if (TilesDictionary.TryGetValue(new Vector2(x, y), out Tile tile))
         {
             tile.EnableTile = true;
+            
         }
     }
     private void OnEnable()
@@ -118,8 +119,16 @@ public class GridManager : MonoBehaviour
                     spawnedPrefab.x = x;
                     spawnedPrefab.y = y;
 
-                    var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
-                    spawnedPrefab.Init(IsOffset);
+                    //var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
+             
+
+                        spawnedPrefab.Init(x);
+                    
+                    //else
+                    //{
+                    //    spawnedPrefab.Renderer.color=
+                    //         Renderer.color = x < 4 ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a) : new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
+                    //}
 
                     spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
                     actualPosX += spawnedPrefab.GetSizeofRenderer().y;

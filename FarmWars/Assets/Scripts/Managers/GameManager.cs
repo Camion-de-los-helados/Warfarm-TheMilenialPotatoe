@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             GO.AddComponent(typeof(CardManager));
             m_gameManager = this;
 
-            
+
             LastMiniGameWinner = PlayerOne;
 
             CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
@@ -115,6 +115,12 @@ public class GameManager : MonoBehaviour
 
         GridManager.Instance.TilesDictionary.TryGetValue(PotatoPosition, out Tile tile2);
         tile2.Patata.enabled = true;
+        tile2.Trap();
+
+        
+
+
+
     }
 
     internal void Win()

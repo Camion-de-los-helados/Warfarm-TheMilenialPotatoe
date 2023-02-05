@@ -18,13 +18,13 @@ public class HotPotato : MonoBehaviour
     [SerializeField] public Sprite OkKey;
     [SerializeField] public Win win;
 
-    [SerializeField] public int MaxRounds = 5;
+    [SerializeField] public int MaxRounds = 2;
     [SerializeField] private int Rounds;
     [SerializeField] public int IdPlayer0 = 0;
     [SerializeField] public int IdPlayer1 = 1;
 
     [SerializeField] public float TimerMiniGame = 0.0f;
-    [SerializeField] public float MaxTime = 300.0f;
+    [SerializeField] public float MaxTime = 60.0f;
 
     bool StartGame = false;
 

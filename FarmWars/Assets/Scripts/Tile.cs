@@ -30,10 +30,18 @@ public class Tile : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public void Init(bool isOffset)
+    public void Init(int x)
     {
         Patata.enabled = false;
-        Renderer.color = isOffset ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a) : new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
+        if (x < 4)
+        {
+            Renderer.color = new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
+        }
+        else if (x > 4)
+        {
+            Renderer.color = new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a);
+        }
+
     }
 
     public Vector2 GetSizeofRenderer()
@@ -104,7 +112,7 @@ public class Tile : MonoBehaviour
                 Patata.enabled = true;
                 GameManager.m_gameManager.UpdatePatatoPos(x, y);
 
-                if (GameManager.m_gameManager.PotatoPosition.x == 0 || GameManager.m_gameManager.PotatoPosition.y == 8)
+                if (GameManager.m_gameManager.PotatoPosition.x == 0 || GameManager.m_gameManager.PotatoPosition.x == 8)
                 {
                     GameManager.m_gameManager.Win();
                 }
@@ -118,38 +126,39 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            if (EnableTile && CheckTraps())
+            if (CheckTraps() && GameObject.FindObjectOfType<TurnManager>().PotatoMoved)
             {
                 Trap();
             }
         }
     }
-    private void Trap()
+    public void Trap()
     {
         if (TrapJump.enabled)
         {
             TrapJump.enabled = false;
             JumpEffect();
         }
-        if (TrapBomb.enabled)
+        else if (TrapBomb.enabled)
         {
             TrapBomb.enabled = false;
             BombEffect();
         }
-        if (TrapBlock.enabled)
+        else if (TrapBlock.enabled)
         {
             TrapBlock.enabled = false;
             GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
         }
-
-        if (!CheckTraps())
+        else
         {
             FindObjectOfType<TurnManager>().NextTurn();
         }
-        else
-        {
-            Trap();
-        }
+
+        //if (!CheckTraps())
+        //{
+        //    FindObjectOfType<TurnManager>().NextTurn();
+        //}
+
 
     }
     private void JumpEffect()
