@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e06fdb592e05e743bf9acd256b72f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentPlayer: 0
+  CurrentPlayerID: 0
   HasTurnFinished: 0
   Timer: 0
   MaxTime: 300
@@ -120,7 +120,7 @@ MonoBehaviour:
   orphanedBehavior: 0
   lifetimeType: 0
   uniquenessType: 1
-  coherenceUUID: HotPotatoManager
+  coherenceUUID: 04716936-643d-484b-8518-fd64f7a2ae25
   destructionBehavior: 0
   preserveChildren: 0
   reflectionBindings: []
@@ -128,8 +128,9 @@ MonoBehaviour:
   bindings:
   - rid: 4603973054356520960
   - rid: 4603973054356520962
-  - rid: 4603973058805891072
   - rid: 4603973058805891678
+  - rid: 4603973062849724419
+  - rid: 4603973062849724470
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -141,7 +142,7 @@ MonoBehaviour:
       m_Calls: []
   remoteVersionPrefabName: MiniGameManager
   PrefabGuid: 759334206ec3a2d46b848ec8d2431208
-  selectedSynchronizedPrefabOption: 3
+  selectedSynchronizedPrefabOption: 0
   usingReflection: 0
   coherenceTag: 
   componentActions: []
@@ -242,52 +243,6 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973058805891072
-      type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
-      data:
-        descriptor:
-          rid: 4603973058805891073
-        routing: 0
-        isPredicted: 0
-        defaultInterpolationPath: 
-        guid: a9c999e1-b6d5-4940-ae1b-57306a515589
-        archetypeData:
-          type: 1
-          minRange: -2147483648
-          maxRange: 2147483647
-          sampleRate: 20
-          floatCompression: 0
-          fields:
-          - type: 1
-            bits: 32
-            minRange: -2147483648
-            maxRange: 2147483647
-            precision: 0
-            floatCompression: 0
-          sharedBinding: {fileID: 0}
-        unityComponent: {fileID: 8222345003895092174}
-        coherenceSync: {fileID: 0}
-        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973058805891073
-      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
-      data:
-        name: CurrentPlayer
-        monoAssemblyType: System.Int32, mscorlib
-        required: 0
-        enforcesLODingWhenFieldsOverriden: 1
-        valueSyncCallbackName: 
-        memberType: 4
-        parameterAssemblyTypes: []
-        ownerType:
-          assemblyQualifiedName: HotPotatoManager, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        CustomData:
-          rid: -2
-        bindingType:
-          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.IntBinding,
-            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-        oldName: 
-        oldParameterAssemblyTypes: []
     - rid: 4603973058805891678
       type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
@@ -334,6 +289,98 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+    - rid: 4603973062849724419
+      type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 4603973062849724420
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: c0d8fbd9-c64d-4608-89c4-0e337ffabbb9
+        archetypeData:
+          type: 1
+          minRange: -2147483648
+          maxRange: 2147483647
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 1
+            bits: 32
+            minRange: -2147483648
+            maxRange: 2147483647
+            precision: 0
+            floatCompression: 0
+          sharedBinding: {fileID: 0}
+        unityComponent: {fileID: 8222345003895092174}
+        coherenceSync: {fileID: 0}
+        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
+    - rid: 4603973062849724420
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: CurrentPlayerID
+        monoAssemblyType: System.Int32, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: HotPotatoManager, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.IntBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
+    - rid: 4603973062849724470
+      type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
+      data:
+        descriptor:
+          rid: 4603973062849724471
+        routing: 0
+        isPredicted: 0
+        defaultInterpolationPath: 
+        guid: 9dc092eb-a0b1-4738-8f0f-7291ee8eab3f
+        archetypeData:
+          type: 4
+          minRange: 0
+          maxRange: 0
+          sampleRate: 20
+          floatCompression: 0
+          fields:
+          - type: 4
+            bits: 32
+            minRange: 0
+            maxRange: 0
+            precision: 0.001
+            floatCompression: 0
+          sharedBinding: {fileID: 0}
+        unityComponent: {fileID: 8222345003895092174}
+        coherenceSync: {fileID: 0}
+        interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
+    - rid: 4603973062849724471
+      type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
+      data:
+        name: PenalisationTime
+        monoAssemblyType: System.Single, mscorlib
+        required: 0
+        enforcesLODingWhenFieldsOverriden: 1
+        valueSyncCallbackName: 
+        memberType: 4
+        parameterAssemblyTypes: []
+        ownerType:
+          assemblyQualifiedName: HotPotatoManager, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        CustomData:
+          rid: -2
+        bindingType:
+          assemblyQualifiedName: Coherence.Toolkit.Bindings.ValueBindings.FloatBinding,
+            Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        oldName: 
+        oldParameterAssemblyTypes: []
 --- !u!114 &3827302091436791009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,4 +393,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d470e57c013458981031cae99a354f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoAssignOnSceneInstances: 0
+  autoAssignOnSceneInstances: 1

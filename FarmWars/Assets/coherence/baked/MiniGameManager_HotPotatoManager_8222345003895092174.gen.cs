@@ -18,12 +18,12 @@ namespace Coherence.Generated
 	public struct MiniGameManager_HotPotatoManager_8222345003895092174 : ICoherenceComponentData
 	{
 		public float Timer;
-		public int CurrentPlayer;
 		public float MaxTime;
+		public int CurrentPlayerID;
 
 		public override string ToString()
 		{
-			return $"MiniGameManager_HotPotatoManager_8222345003895092174(Timer: {Timer}, CurrentPlayer: {CurrentPlayer}, MaxTime: {MaxTime})";
+			return $"MiniGameManager_HotPotatoManager_8222345003895092174(Timer: {Timer}, MaxTime: {MaxTime}, CurrentPlayerID: {CurrentPlayerID})";
 		}
 
 		public uint GetComponentType() => Definition.InternalMiniGameManager_HotPotatoManager_8222345003895092174;
@@ -34,8 +34,8 @@ namespace Coherence.Generated
 
 		public AbsoluteSimulationFrame Frame;
 	
-		private static readonly int _CurrentPlayer_Min = -2147483648;
-		private static readonly int _CurrentPlayer_Max = 2147483647;
+		private static readonly int _CurrentPlayerID_Min = -2147483648;
+		private static readonly int _CurrentPlayerID_Max = 2147483647;
 
 		public void SetSimulationFrame(AbsoluteSimulationFrame frame)
 		{
@@ -56,13 +56,13 @@ namespace Coherence.Generated
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				CurrentPlayer = other.CurrentPlayer;
+				MaxTime = other.MaxTime;
 			}
 			mask >>= 1;
 			if ((mask & 0x01) != 0)
 			{
 				Frame = other.Frame;
-				MaxTime = other.MaxTime;
+				CurrentPlayerID = other.CurrentPlayerID;
 			}
 			mask >>= 1;
 			return this;
@@ -77,14 +77,14 @@ namespace Coherence.Generated
 			mask >>= 1;
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				Coherence.Utils.Bounds.Check(data.CurrentPlayer, _CurrentPlayer_Min, _CurrentPlayer_Max, "MiniGameManager_HotPotatoManager_8222345003895092174.CurrentPlayer");
-				data.CurrentPlayer = Coherence.Utils.Bounds.Clamp(data.CurrentPlayer, _CurrentPlayer_Min, _CurrentPlayer_Max);
-				bitStream.WriteIntegerRange(data.CurrentPlayer, 32, -2147483648);
+				bitStream.WriteFloat(data.MaxTime, FloatMeta.NoCompression());
 			}
 			mask >>= 1;
 			if (bitStream.WriteMask((mask & 0x01) != 0))
 			{
-				bitStream.WriteFloat(data.MaxTime, FloatMeta.NoCompression());
+				Coherence.Utils.Bounds.Check(data.CurrentPlayerID, _CurrentPlayerID_Min, _CurrentPlayerID_Max, "MiniGameManager_HotPotatoManager_8222345003895092174.CurrentPlayerID");
+				data.CurrentPlayerID = Coherence.Utils.Bounds.Clamp(data.CurrentPlayerID, _CurrentPlayerID_Min, _CurrentPlayerID_Max);
+				bitStream.WriteIntegerRange(data.CurrentPlayerID, 32, -2147483648);
 			}
 			mask >>= 1;
 		}
@@ -101,12 +101,12 @@ namespace Coherence.Generated
 			}
 			if (bitStream.ReadMask())
 			{
-				val.CurrentPlayer = bitStream.ReadIntegerRange(32, -2147483648);
+				val.MaxTime = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000010;
 			}
 			if (bitStream.ReadMask())
 			{
-				val.MaxTime = bitStream.ReadFloat(FloatMeta.NoCompression());
+				val.CurrentPlayerID = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000000100;
 			}
 			return (val, mask, null);
@@ -122,12 +122,12 @@ namespace Coherence.Generated
 			}
 			if (bitStream.ReadMask())
 			{
-				val.CurrentPlayer = bitStream.ReadIntegerRange(32, -2147483648);
+				val.MaxTime = bitStream.ReadFloat(FloatMeta.NoCompression());
 				mask |= 0b00000000000000000000000000000010;
 			}
 			if (bitStream.ReadMask())
 			{
-				val.MaxTime = bitStream.ReadFloat(FloatMeta.NoCompression());
+				val.CurrentPlayerID = bitStream.ReadIntegerRange(32, -2147483648);
 				mask |= 0b00000000000000000000000000000100;
 			}
 

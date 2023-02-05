@@ -59,43 +59,6 @@ namespace Coherence.Generated
 		}
 	}
 
-	public class Binding_759334206ec3a2d46b848ec8d2431208_a9c999e1_b6d5_4940_ae1b_57306a515589 : IntBinding
-	{
-		private HotPotatoManager CastedUnityComponent;		
-
-		protected override void OnBindingCloned()
-		{
-			CastedUnityComponent = (HotPotatoManager)UnityComponent;
-		}
-		public override string CoherenceComponentName => "MiniGameManager_HotPotatoManager_8222345003895092174";
-
-		public override uint FieldMask => 0b00000000000000000000000000000010;
-
-		public override int Value
-		{
-			get => (int)(System.Int32)(CastedUnityComponent.CurrentPlayer);
-			set => CastedUnityComponent.CurrentPlayer = (System.Int32)(value);
-		}
-
-		protected override int ReadComponentData(ICoherenceComponentData coherenceComponent)
-		{
-			var update = (MiniGameManager_HotPotatoManager_8222345003895092174)coherenceComponent;
-			return update.CurrentPlayer;
-		}
-		
-		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
-		{
-			var update = (MiniGameManager_HotPotatoManager_8222345003895092174)coherenceComponent;
-			update.CurrentPlayer = Value;
-			return update;
-		}
-
-		public override ICoherenceComponentData CreateComponentData()
-		{
-			return new MiniGameManager_HotPotatoManager_8222345003895092174();
-		}
-	}
-
 	public class Binding_759334206ec3a2d46b848ec8d2431208_173fae32_0a65_4ab0_a3c4_f15a43934897 : FloatBinding
 	{
 		private HotPotatoManager CastedUnityComponent;		
@@ -106,7 +69,7 @@ namespace Coherence.Generated
 		}
 		public override string CoherenceComponentName => "MiniGameManager_HotPotatoManager_8222345003895092174";
 
-		public override uint FieldMask => 0b00000000000000000000000000000100;
+		public override uint FieldMask => 0b00000000000000000000000000000010;
 
 		public override float Value
 		{
@@ -124,6 +87,43 @@ namespace Coherence.Generated
 		{
 			var update = (MiniGameManager_HotPotatoManager_8222345003895092174)coherenceComponent;
 			update.MaxTime = Value;
+			return update;
+		}
+
+		public override ICoherenceComponentData CreateComponentData()
+		{
+			return new MiniGameManager_HotPotatoManager_8222345003895092174();
+		}
+	}
+
+	public class Binding_759334206ec3a2d46b848ec8d2431208_c0d8fbd9_c64d_4608_89c4_0e337ffabbb9 : IntBinding
+	{
+		private HotPotatoManager CastedUnityComponent;		
+
+		protected override void OnBindingCloned()
+		{
+			CastedUnityComponent = (HotPotatoManager)UnityComponent;
+		}
+		public override string CoherenceComponentName => "MiniGameManager_HotPotatoManager_8222345003895092174";
+
+		public override uint FieldMask => 0b00000000000000000000000000000100;
+
+		public override int Value
+		{
+			get => (int)(System.Int32)(CastedUnityComponent.CurrentPlayerID);
+			set => CastedUnityComponent.CurrentPlayerID = (System.Int32)(value);
+		}
+
+		protected override int ReadComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (MiniGameManager_HotPotatoManager_8222345003895092174)coherenceComponent;
+			return update.CurrentPlayerID;
+		}
+		
+		public override ICoherenceComponentData WriteComponentData(ICoherenceComponentData coherenceComponent)
+		{
+			var update = (MiniGameManager_HotPotatoManager_8222345003895092174)coherenceComponent;
+			update.CurrentPlayerID = Value;
 			return update;
 		}
 
@@ -163,16 +163,6 @@ namespace Coherence.Generated
 			{
 				logger.Error("Couldn't find binding (HotPotatoManager).Timer");
 			}
-			if (coherenceSync.TryGetBindingByGuid("a9c999e1-b6d5-4940-ae1b-57306a515589", "CurrentPlayer", out Binding InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayer))
-			{
-				var clone = new Binding_759334206ec3a2d46b848ec8d2431208_a9c999e1_b6d5_4940_ae1b_57306a515589();
-				InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayer.CloneTo(clone);
-				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayer)] = clone;
-			}
-			else
-			{
-				logger.Error("Couldn't find binding (HotPotatoManager).CurrentPlayer");
-			}
 			if (coherenceSync.TryGetBindingByGuid("173fae32-0a65-4ab0-a3c4-f15a43934897", "MaxTime", out Binding InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_MaxTime))
 			{
 				var clone = new Binding_759334206ec3a2d46b848ec8d2431208_173fae32_0a65_4ab0_a3c4_f15a43934897();
@@ -182,6 +172,16 @@ namespace Coherence.Generated
 			else
 			{
 				logger.Error("Couldn't find binding (HotPotatoManager).MaxTime");
+			}
+			if (coherenceSync.TryGetBindingByGuid("c0d8fbd9-c64d-4608-89c4-0e337ffabbb9", "CurrentPlayerID", out Binding InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayerID))
+			{
+				var clone = new Binding_759334206ec3a2d46b848ec8d2431208_c0d8fbd9_c64d_4608_89c4_0e337ffabbb9();
+				InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayerID.CloneTo(clone);
+				coherenceSync.Bindings[coherenceSync.Bindings.IndexOf(InternalMiniGameManager_HotPotatoManager_8222345003895092174_MiniGameManager_HotPotatoManager_8222345003895092174_CurrentPlayerID)] = clone;
+			}
+			else
+			{
+				logger.Error("Couldn't find binding (HotPotatoManager).CurrentPlayerID");
 			}
 		}
 
