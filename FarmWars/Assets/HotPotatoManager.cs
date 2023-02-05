@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HotPotatoManager : MonoBehaviour
 {
-    [SerializeField] public int CurrentPlayer;
+    [SerializeField] public int CurrentPlayerID;
     public bool HasTurnFinished = false;
     [SerializeField] public float Timer = 0.0f;
     [SerializeField] public float MaxTime = 300.0f;
@@ -30,7 +30,7 @@ public class HotPotatoManager : MonoBehaviour
         {
             ActualSprite.sprite = spritesPatato[0];
         }
-        else if (Timer > range && Timer < range * 2) 
+        else if (Timer > range && Timer < range * 2)
         {
             ActualSprite.sprite = spritesPatato[1];
         }
@@ -52,7 +52,7 @@ public class HotPotatoManager : MonoBehaviour
         }
 
 
-        if (Timer > MaxTime) 
+        if (Timer > MaxTime)
         {
             auxTimer += Time.deltaTime;
             float rangeAnimation = animationTime / 5;
@@ -80,7 +80,7 @@ public class HotPotatoManager : MonoBehaviour
             {
 
                 int winPlayer;
-                if (CurrentPlayer == 0)
+                if (CurrentPlayerID == 0)
                 {
                     winPlayer = 1;
                 }
@@ -96,12 +96,12 @@ public class HotPotatoManager : MonoBehaviour
     public void PlayerSelected()
     {
         //CurrentPlayer = 0;
-        BackgroundGame.sprite = BackGrounds[CurrentPlayer];
+        BackgroundGame.sprite = BackGrounds[CurrentPlayerID];
     }
 
     public int GetCurrentPlayer()
     {
-        return CurrentPlayer;
+        return CurrentPlayerID;
     }
 
     public bool GetHasTurnFinished()
@@ -111,20 +111,20 @@ public class HotPotatoManager : MonoBehaviour
 
     public void FinishedTurn()
     {
-        HasTurnFinished = true;
-        if (CurrentPlayer == 0)
+        //HasTurnFinished = true;
+        if (CurrentPlayerID == 0)
         {
-            CurrentPlayer = 1;
-            BackgroundGame.sprite = BackGrounds[CurrentPlayer];
+            CurrentPlayerID = 1;
+            BackgroundGame.sprite = BackGrounds[CurrentPlayerID];
         }
-        else 
+        else
         {
-            CurrentPlayer = 0;
-            BackgroundGame.sprite = BackGrounds[CurrentPlayer];
+            CurrentPlayerID = 0;
+            BackgroundGame.sprite = BackGrounds[CurrentPlayerID];
         }
     }
 
-    public void StartTurn() 
+    public void StartTurn()
     {
         HasTurnFinished = false;
     }
@@ -132,6 +132,6 @@ public class HotPotatoManager : MonoBehaviour
     public void AddTime()
     {
         Debug.Log("ADD TIME");
-        Timer += PenalisationTime; 
+        Timer += PenalisationTime;
     }
 }

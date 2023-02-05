@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-#region References
+    #region References
     public static GameManager m_gameManager { get; private set; }
 
     public GridManager m_gridManager { get; private set; }
@@ -23,12 +23,12 @@ public class GameManager : MonoBehaviour
     private GameObject PotatoBlockPrefab;
 
 
-#endregion
+    #endregion
 
 
 
-#region Properties
-#region Menu
+    #region Properties
+    #region Menu
     [Header("Sound")]
     [Range(0, 100)]
     public float _soundVolume;
@@ -38,44 +38,26 @@ public class GameManager : MonoBehaviour
 
     [Header("MiniGames")]
     public GameObject _lastWinner;
-#endregion
+    #endregion
 
 
-    public Player LocalPlayer;
+    public Player PlayerOne;
 
-    public Player RemotePlayer;
+    public Player PlayerTwo;
 
     public Player LastMiniGameWinner;
-
-    public Scene activeScene;
-#endregion
+    #endregion
 
 
 
-#region Methods
+    #region Methods
     public void LoadScene(int id)
     {
-        activeScene = SceneManager.GetSceneAt(id);
-        SceneManager.LoadScene (id);
-        SceneChanged();
-    }
-
-    private void SceneChanged()
-    {
-        switch (activeScene.name)
-        {
-            case "TestTilesMap":
-                CardManager.Instance.LoadSceneVariables(true);
-
-                break;
-            default:
-                Debug.LogWarning("Scene not found");
-                break;
-        }
+        SceneManager.LoadScene(id);
     }
 
 
-#endregion
+    #endregion
 
 
     private void Awake()
@@ -86,45 +68,40 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            //m_gridManager = GridManager.Instance;
+            GameObject GO = new GameObject();
+            GO.name = "CardManager";
+
+            //Instantiate(GO);
+            GO.AddComponent(typeof(CardManager));
             m_gameManager = this;
+
+            PlayerOne = new Player(0);
+            PlayerTwo = new Player(1);
+            LastMiniGameWinner = PlayerOne;
+
+            CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
+            CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
+            CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
+
+            CardManager.Instance.DrawCard(LastMiniGameWinner);
+          
         }
     }
+
 
     void Start()
     {
         DontDestroyOnLoad(this);
 
-        //m_gridManager = GridManager.Instance;
-        GameObject GO = new GameObject();
-        GO.name = "CardManager";
-
-        //Instantiate(GO);
-        GO.AddComponent(typeof (CardManager));
-
-        if (PotatoBombPrefab == null || PotatoJumpinPrefab == null)
+        if (PotatoBombPrefab == null || PotatoJumpinPrefab == null || PotatoBlockPrefab == null)
         {
             Debug.LogError("PREFAB NOT FOUND");
         }
 
-        CardManager.Instance.PotatoBombPrefab = PotatoBombPrefab;
-        CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
-        CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
-
-        //LocalPlayer = new Player(0);
-        //RemotePlayer = new Player(1);
-        activeScene = SceneManager.GetActiveScene();
-
-        CardManager.Instance.DrawCard (LocalPlayer);
-        CardManager.Instance.DrawCard (LocalPlayer);
-        CardManager.Instance.DrawCard (LocalPlayer);
-        SceneChanged();
     }
 
-    public void CreateLocalPlayer(int id)
-    {
-        LocalPlayer = new Player(id);
-        RemotePlayer = new Player(id == 0 ? 1 : 0);
-    }
+
 }
 
 public enum CardInHand

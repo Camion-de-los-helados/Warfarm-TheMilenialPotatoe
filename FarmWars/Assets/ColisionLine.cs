@@ -1,25 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class GoalPong : MonoBehaviour
+public class ColisionLine : MonoBehaviour
 {
-    UnityEvent LoseEvent;  
     
+    [SerializeField] int id;
+    [SerializeField] GoalPongManager goalPongManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ball"))
         {
-            LoseEvent.Invoke();
+            goalPongManager.EndGame(id);
         }
-
-
     }
-
-
-
-
-
 }
