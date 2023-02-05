@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
+using System.Threading;
+using Unity.Mathematics;
 
 public class ContClicks : MonoBehaviour
 {
@@ -29,15 +32,38 @@ public class ContClicks : MonoBehaviour
     public Image imageChange2;
     public Button ButtonImage;
 
+    [SerializeField] GameObject backgroundImage1;
+    [SerializeField] GameObject backgroundImage2;
+    [SerializeField] GameObject image1;
+    [SerializeField] GameObject image2;
+    [SerializeField] GameObject button1;
+    [SerializeField] GameObject button2;
+
     private bool finished = false;
     // Start is called before the first frame update
+
+
+    [SerializeField] public GameObject canvasInitial;
+
+    Array allKeyCodes;
+    bool StartGame = false;
+    void Awake()
+    {
+        allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
+    }
 
 
 
     private void Start() 
     {
-        
-        
+        Debug.Log("START CONT CLICK");
+        canvasInitial.SetActive(true);
+        backgroundImage1.SetActive(false);
+        backgroundImage2.SetActive(false);
+        image1.SetActive(false);
+        image2.SetActive(false);
+        button1.SetActive(false);
+        button2.SetActive(false);
         //btn.OnKeyDown.AddListener(()=>Counter());
         //ButtonImage.image.sprite = ButtonView;
     }
@@ -126,22 +152,47 @@ public class ContClicks : MonoBehaviour
         finished = true;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if (!finished)
+        Debug.Log("UPDATE");
+        if (StartGame == false)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            Debug.Log("UPDATE START GAME FALSE");
+            foreach (KeyCode tempKey in allKeyCodes)
             {
-                //   ButtonImage.image.sprite = ButtonViewPressed;
-                Counter1();
+                //Send event to key down
+                if (Input.GetKeyDown(tempKey))
+                {
+                    Debug.Log("UPDATE START GAME FALSE PRESS KEY");
+                    canvasInitial.SetActive(false);
+                    StartGame = true;
+                    backgroundImage1.SetActive(true);
+                    backgroundImage2.SetActive(true);
+                    image1.SetActive(true);
+                    image2.SetActive(true);
+                    button1.SetActive(true);
+                    button2.SetActive(true);
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.P))
+            
+        }
+        else
+        {
+            if (!finished)
             {
-                //    ButtonImage.image.sprite = ButtonViewPressed;
-                Counter2();
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    //   ButtonImage.image.sprite = ButtonViewPressed;
+                    Counter1();
+                }
+                else if (Input.GetKeyDown(KeyCode.P))
+                {
+                    //    ButtonImage.image.sprite = ButtonViewPressed;
+                    Counter2();
+                }
             }
         }
-        
     }
 
 }
