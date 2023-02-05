@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SyncManager : MonoBehaviour
 {
-    public SyncManager m_syncManager { get; private set; }
+    public static SyncManager m_syncManager { get; private set; }
+
     #region Play Time Properties
     private int currentPlayerID;
     private int lastWinner;
@@ -15,6 +16,11 @@ public class SyncManager : MonoBehaviour
     private bool finishPotatoTurn = false;
     private bool endPotato = false;
     #endregion
+    public bool Player1PressedPlay = false;
+    public bool Player2PressedPlay = false;
+    private bool MenuNotStarted = true;
+    private int[] MiniGames = { Const.HOT_POTATO_SCENE_ID };
+
     #region Sync
     private Dictionary<CARD_TYPES, int> CardDeck = new Dictionary<CARD_TYPES, int>();
     private Stack<GameObject>[,] traps = new Stack<GameObject>[Const.MAP_SIZE_HORIZONTAL, Const.MAP_SIZE_VERTICAL];
@@ -125,11 +131,25 @@ public class SyncManager : MonoBehaviour
     }
     void Start()
     {
-
     }
+
+    public void LoadMiniGame()
+    {
+        GameManager.m_gameManager.LoadScene(MiniGames[0]);
+    }
+
 
     void Update()
     {
+        if (MenuNotStarted)
+        {
+            if (Player1PressedPlay && Player2PressedPlay)
+            {
+                //GameManager.m_gameManager.LoadScene(Const.SCENE_MAP);
+                LoadMiniGame();
+            }
+        }
+
         if (playTime)
         {
             if (firstCardTurnFinish && secondCardTurnFinish && !movePotatoTurn)

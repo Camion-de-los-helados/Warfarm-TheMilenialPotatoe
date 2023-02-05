@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     private GameObject PotatoBombPrefab;
 
     [SerializeField]
-    private GameObject PotatoJumpinPrefab;  
-    
+    private GameObject PotatoJumpinPrefab;
+
     [SerializeField]
     private GameObject PotatoBlockPrefab;
 
@@ -50,13 +50,17 @@ public class GameManager : MonoBehaviour
         SceneChanged();
     }
 
+
+
+
+
     private void SceneChanged()
     {
         switch (activeScene.name)
         {
             case "TestTilesMap":
                 CardManager.Instance.LoadSceneVariables(true);
-         
+
                 break;
 
             default:
@@ -98,8 +102,8 @@ public class GameManager : MonoBehaviour
         CardManager.Instance.PotatoJumpinPrefab = PotatoJumpinPrefab;
         CardManager.Instance.PotatoBlockPrefab = PotatoBlockPrefab;
 
-        LocalPlayer = new Player();
-        RemotePlayer = new Player();
+        //LocalPlayer = new Player();
+        //RemotePlayer = new Player();
 
         activeScene = SceneManager.GetActiveScene();
 
@@ -110,7 +114,11 @@ public class GameManager : MonoBehaviour
 
 
     }
-
+    public void CreateLocalPlayer(int id)
+    {
+        LocalPlayer = new Player(id);
+        RemotePlayer = new Player(id == 0 ? 1 : 0);
+    }
 }
 
 

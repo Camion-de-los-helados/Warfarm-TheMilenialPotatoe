@@ -30,6 +30,7 @@ public class GridManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
+
         }
         else
         {
