@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using Random = UnityEngine.Random;
 
 public class TiroPatataManager : MonoBehaviour
 {
     public GameObject potatoPrefab;
-    public GameObject m_syncManager;
-    private syncManagerTiroPatata m_syncM;
     public float speed;
     public int playerID;
     private SpriteRenderer sprite;
@@ -19,32 +19,50 @@ public class TiroPatataManager : MonoBehaviour
     float posX;
     float posY;
 
-    float timeBetweenPotatos = 1.0f;
+    [SerializeField] public float timeBetweenPotatos = 0.3f;
     float deltaTime;
-    
+
 
     // GUI
-
-    float timer = 50;
+    [SerializeField] public float MaxTimer = 50;
+    private float timer = 50;
     private TextMeshProUGUI scoreTexto;
     private TextMeshProUGUI timerTexto;
-    [SerializeField] private int puntuacion = 0;
+    [SerializeField] private int puntuacionP0 = 0;
+    [SerializeField] private int puntuacionP1 = 0;
     //[SerializeField] private TMP_Text scoreTexto;
     [SerializeField] private string texto;
     //int puntuacion = 0;
 
-    
+
+    [SerializeField] int currentPlayer = 0;
+    [SerializeField] public Win win;
+
+    [SerializeField] GameObject SpriteP0;
+    [SerializeField] GameObject SpriteP1;
+    [SerializeField] GameObject CanvasInitial;
+    [SerializeField] TMP_Text textPressKey;
+
+    Array allKeyCodes;
+    private bool StartGame = false;
+    private bool EndGame = false;
+    void Awake()
+    {
+        allKeyCodes = System.Enum.GetValues(typeof(KeyCode));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        m_syncM = m_syncManager.GetComponent<syncManagerTiroPatata>();
         deltaTime = timeBetweenPotatos;
-        
+        timer = MaxTimer;
         scoreTexto = GameObject.Find("Score").GetComponent<TextMeshProUGUI>();
         timerTexto = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
-        timerTexto.text =  ((int) timer).ToString();
-        scoreTexto.text = "Score: " + puntuacion.ToString();
-        Debug.Log(scoreTexto);
+        scoreTexto.text = "";
+        timerTexto.text = "";
+        SpriteP0.SetActive(false);
+        SpriteP1.SetActive(false);
+        CanvasInitial.SetActive(true);
         // for (int i = 0; i < numPotato; i++)
         // {
         //     //float randomX = Random.Range(0,2)*2-1;
@@ -60,29 +78,73 @@ public class TiroPatataManager : MonoBehaviour
         //     {
         //         obj.GetComponent<tiroPatata>().addForce(new Vector2(-0.5f,1), 14f);
         //     }
-            
+
         // }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerTexto.text = ((int) timer).ToString();
-        if(timer <= 0)
+
+        if (StartGame == false && EndGame == false)
         {
-            endGame();
+            foreach (KeyCode tempKey in allKeyCodes)
+            {
+                //Send event to key down
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    StartGame = true;
+                    if (currentPlayer == 0)
+                    {
+                        CanvasInitial.SetActive(false);
+                        SpriteP0.SetActive(true);
+                    }
+                    else if (currentPlayer == 1)
+                    {
+                        CanvasInitial.SetActive(false);
+                        SpriteP1.SetActive(true);
+                    }
+                }
+            }
         }
-        deltaTime -= Time.deltaTime;
-        if (deltaTime <= 0)
+        else if (StartGame == true && EndGame == false)
         {
-            createPotato();
-            deltaTime = timeBetweenPotatos;
+            timer -= Time.deltaTime;
+            timerTexto.text = "Time: " +((int)timer).ToString();
+            if (timer <= 0)
+            {
+                if (currentPlayer == 0)
+                {
+                    SpriteP0.SetActive(false);
+                    SpriteP1.SetActive(false);
+                    scoreTexto.text = "";
+                    timerTexto.text = "";
+                    currentPlayer = 1;
+                    timer = MaxTimer;
+                    StartGame = false;
+                    CanvasInitial.SetActive(true);
+                    textPressKey.text = "PLAYER 2 PRESS SPACE...";
+                }
+                else if (currentPlayer == 1)
+                {
+                    SpriteP0.SetActive(false);
+                    SpriteP1.SetActive(false);
+                    EndGame = true;
+                    endGame();
+                }
+            }
+            deltaTime -= Time.deltaTime;
+            if (deltaTime <= 0)
+            {
+                createPotato();
+                deltaTime = timeBetweenPotatos;
+            }
+
+            if(timer > 0){
+                shootDetection();
+            }
         }
-        
-        shootDetection();
-        
     }
 
     private void createPotato()
@@ -109,19 +171,43 @@ public class TiroPatataManager : MonoBehaviour
 
             if (hit)
             {
-                tiroPatata tiroP =  hit.collider.gameObject.GetComponent<tiroPatata>();
+                tiroPatata tiroP = hit.collider.gameObject.GetComponent<tiroPatata>();
                 tiroP.muerto();
                 //Muerto(hit.collider.gameObject);
-                puntuacion++;
-                scoreTexto.text = ("Score: " + puntuacion.ToString());
-                Debug.Log(puntuacion);
+                if (currentPlayer == 0)
+                {
+                    puntuacionP0++;
+                    scoreTexto.text = ("Score: " + puntuacionP0.ToString());
+                }
+                else if (currentPlayer == 1)
+                {
+                    puntuacionP1++;
+                    scoreTexto.text = ("Score: " + puntuacionP1.ToString());
+                }
                 Debug.Log("Potato Hit");
             }
         }
     }
     private void endGame()
     {
-        m_syncM.finishPlayer(puntuacion, playerID);
+        scoreTexto.text = "";
+        timerTexto.text = "";
+        if (puntuacionP0 > puntuacionP1)
+        {
+            win.FinishGame(0);
+            Debug.Log("Player 0 WIN!!!!!!!");
+        }
+        else if (puntuacionP1 > puntuacionP0)
+        {
+            win.FinishGame(1);
+            Debug.Log("Player 1 WIN!!!!!!!");
+        }
+        else 
+        {
+            int random = Random.Range(0, 1);
+            win.FinishGame(random);
+            Debug.Log("EMPATE!!!!!!!!!!!!!!!!!!!!");
+        }
         //Enviar la puntuación al GameManager
     }
     public void Muerto(GameObject gameObject) 
