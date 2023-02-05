@@ -19,11 +19,11 @@ public static class Const
 
     public const int MAX_BOMBCARD_TYPE = 3;
 
-    public const int MAX_JUMPINCARD_TYPE = 30;
-
-    public const int MAX_SLINGCARD_TYPE = 3;
+    public const int MAX_JUMPINCARD_TYPE = 3;
 
     public const int MAX_BLOCKCARD_TYPE = 3;
+    //public const int MAX_SLINGCARD_TYPE = 3;
+
 
     public const int MAX_CLEARCARD_TYPE = 3;
 

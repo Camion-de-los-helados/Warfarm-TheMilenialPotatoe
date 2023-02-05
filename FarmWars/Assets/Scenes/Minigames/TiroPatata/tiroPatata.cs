@@ -6,16 +6,16 @@ public class tiroPatata : MonoBehaviour
 {
     Collider2D collider;
     private bool isAlive = true;
-
-    // Vector2 direction = new Vector2(0.5f,1);
-    // float magnitude = 14f;
     Rigidbody2D rb;
-    // Start is called before the first frame update
+
+    private SpriteRenderer spriteRenderer;
+    public Sprite destructionSprite;
+    float timeToDie = 0.3f;
     void Start()
     {
         // if (gameObject.transform.position)
         
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
         //rb.AddRelativeForce(direction * magnitude, ForceMode2D.Impulse);
     }
@@ -26,6 +26,10 @@ public class tiroPatata : MonoBehaviour
         // Add force
         
         //transform.position = transform.position + new Vector3(5f * Time.deltaTime, 0, 0);
+        if(!isAlive)
+        {
+            muerete();
+        }
     }
 
     public void addForce(Vector2 direction, float magnitude) 
@@ -38,8 +42,21 @@ public class tiroPatata : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Muerto() 
+    public void muerto()
     {
-        Debug.Log("Muerto");
+        isAlive = false;
+    }
+    public void muerete() 
+    {
+        spriteRenderer.sprite = destructionSprite;
+        Debug.Log(timeToDie);
+        timeToDie -= Time.deltaTime;
+        if(timeToDie <= 0)
+        {
+            Debug.Log("Destruidaaa");
+            Destroy(gameObject);
+        }
+       
+        
     }
 }

@@ -16,6 +16,11 @@ public class PotatoBombCard : Card
 
     public override void DoAction()
     {
-        Debug.Log("Card Picked");
+        if (IsEnable)
+        {
+            GameObject.FindObjectOfType<LeftTopImage>().CardInTopLeft = this;
+            GameObject.FindObjectOfType<LeftTopImage>().ShowCard();
+        }
+
     }
 }

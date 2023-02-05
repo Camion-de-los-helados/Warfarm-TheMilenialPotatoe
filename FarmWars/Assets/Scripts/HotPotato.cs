@@ -10,15 +10,23 @@ public class HotPotato : MonoBehaviour
 {
     [SerializeField] public GameObject Mmanager;
     [SerializeField] public Key[] AllKeys = new Key[50];
-    [SerializeField] public SpriteRenderer[] SpriteRenderer;
+    [SerializeField] public SpriteRenderer[] SpriteRenderersP0;
+    [SerializeField] public SpriteRenderer[] SpritesOkP0;
+    [SerializeField] public SpriteRenderer[] SpriteRenderersP1;
+    [SerializeField] public SpriteRenderer[] SpritesOkP1;
+    [SerializeField] public Sprite OkKey;
 
     [SerializeField] public int MaxRounds= 5;
     [SerializeField] private int Rounds;
     [SerializeField] public int IdPlayer = 0;
-    
+
     Array allKeyCodes;
     private int ActualRounds; 
     private Key[] ActualKeys;
+
+    private SpriteRenderer[] ActualSpritesRendrersPlayer;
+    private SpriteRenderer[] ActualSpritesOk;
+
     private HotPotatoManager HotPotatoManager;
     private int currentPlayer;
     private bool turnFinished = false; 
@@ -31,9 +39,22 @@ public class HotPotato : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         HotPotatoManager = Mmanager.GetComponent<HotPotatoManager>();
         currentPlayer = HotPotatoManager.GetCurrentPlayer();
-        ActualKeys = new Key[SpriteRenderer.Length];
+        ActualKeys = new Key[4];
+
+        if (currentPlayer == 0)
+        {
+            ActualSpritesRendrersPlayer = SpriteRenderersP0;
+            ActualSpritesOk = SpritesOkP0;
+        }
+        else 
+        {
+            ActualSpritesRendrersPlayer = SpriteRenderersP1;
+            ActualSpritesOk = SpritesOkP1;
+        }
+
         Rounds = Random.Range(1, MaxRounds);
         ActualRounds = 0;
         UpdateActualKeys();
@@ -85,7 +106,7 @@ public class HotPotato : MonoBehaviour
     void UpdateActualKeys() 
     {
         ActualRounds++;
-        int randomLength = Random.Range(1, SpriteRenderer.Length);
+        int randomLength = Random.Range(1, ActualSpritesRendrersPlayer.Length);
         for (int i = 0; i < randomLength; i++)
         {
             bool exist = true;
@@ -116,9 +137,10 @@ public class HotPotato : MonoBehaviour
             ActualKeys[i].KeyCode = KeyCode.None;
         }
 
-        for (int i = 0; i < SpriteRenderer.Length; i++)
+        for (int i = 0; i < ActualSpritesRendrersPlayer.Length; i++)
         {
-            SpriteRenderer[i].sprite = ActualKeys[i].Sprite;
+            ActualSpritesRendrersPlayer[i].sprite = ActualKeys[i].Sprite;
+            ActualSpritesOk[i].sprite = null;
         }
     }
 
@@ -136,6 +158,7 @@ public class HotPotato : MonoBehaviour
             if (ActualKeys[i].KeyCode == keycode)
             {
                 ActualKeys[i].IsPressed = true;
+                ActualSpritesOk[i].sprite = OkKey;
                 pressCorrectKey = true;
             }
         }
@@ -148,11 +171,19 @@ public class HotPotato : MonoBehaviour
 
     private void CleanScreen() 
     {
+        Debug.Log("CLEAN SCREEN");
         for (int i = 0; i < ActualKeys.Length; i++)
         {
             ActualKeys[i].Sprite = null;
             ActualKeys[i].KeyCode = KeyCode.None;
             ActualKeys[i].IsPressed = false;
+            Debug.Log("CLEAN SCREEN" + i);
+        }
+
+        for (int i = 0; i < ActualSpritesRendrersPlayer.Length; i++)
+        {
+            ActualSpritesRendrersPlayer[i].sprite = ActualKeys[i].Sprite;
+            ActualSpritesOk[i].sprite = null;
         }
     }
 }
