@@ -5,9 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-//using Win;
 
-public class ContClicks : MonoBehaviour, IPointerDownHandler
+public class ContClicks : MonoBehaviour
 {
     
     int MaxClick = Const.MAX_CLICKS_POTATOPEELER;
@@ -15,7 +14,9 @@ public class ContClicks : MonoBehaviour, IPointerDownHandler
     public int  ActualClick2 = 0;
     //[SerializeField] private Button btn;
     [SerializeField] private TextMeshProUGUI text;
-    //[SerializeField] private Win win;
+    [SerializeField] public Win win;
+    [SerializeField] public List<Image> images;
+
     public Sprite p1;
     public Sprite p2;
     public Sprite p3;
@@ -27,9 +28,11 @@ public class ContClicks : MonoBehaviour, IPointerDownHandler
     public Image imageChange;
     public Image imageChange2;
     public Button ButtonImage;
+
+    private bool finished = false;
     // Start is called before the first frame update
 
-    
+
 
     private void Start() 
     {
@@ -71,8 +74,7 @@ public class ContClicks : MonoBehaviour, IPointerDownHandler
         else if(ActualClick1 == MaxClick)
         {
             imageChange.sprite = p6;
-           // win.FinishGame(0);
-            EndGame();
+            EndGame(0);
         }
         
     }
@@ -105,37 +107,41 @@ public class ContClicks : MonoBehaviour, IPointerDownHandler
         }
         else if (ActualClick2 == MaxClick)
         {
-            imageChange.sprite = p6;
-          //  win.FinishGame(1);
-            EndGame();
+            imageChange2.sprite = p6;
+            EndGame(1);
         }
 
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        ButtonImage.image.sprite = ButtonViewPressed;
-    }
+    
 
     
 
-    public void EndGame()
+    public void EndGame(int winner)
     {
-
-
+        foreach (Image i in images)
+        {
+            i.enabled = false;
+        }
+        win.FinishGame(winner);
+        finished = true;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (!finished)
         {
-         //   ButtonImage.image.sprite = ButtonViewPressed;
-            Counter1();
-        }else if (Input.GetKeyDown(KeyCode.P))
-        {
-        //    ButtonImage.image.sprite = ButtonViewPressed;
-            Counter2();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //   ButtonImage.image.sprite = ButtonViewPressed;
+                Counter1();
+            }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                //    ButtonImage.image.sprite = ButtonViewPressed;
+                Counter2();
+            }
         }
+        
     }
 
 }
