@@ -19,14 +19,7 @@ public class MainMenuView : View
 
     private void ChangeScene()
     {
-        if (GameManager.m_gameManager.LocalPlayer.ID == 0)
-        {
-            SyncManager.m_syncManager.Player1PressedPlay = true;
-        }
-        else
-        {
-            SyncManager.m_syncManager.Player2PressedPlay = true;
-        }
+        GameManager.m_gameManager.LoadScene(Const.SCENE_MAP);
     }
 
     private void QuitGame()

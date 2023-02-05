@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private GameObject Higlight;
     public float sizeX;
     public float sizeY;
+
     [SerializeField]
     private SpriteRenderer TrapJump;
 
@@ -20,10 +21,7 @@ public class Tile : MonoBehaviour
 
     public bool EnableTile = false;
 
-    private void OnEnable()
-    {
 
-    }
     // Start is called before the first frame update
     public void Init(bool isOffset)
     {
@@ -52,7 +50,7 @@ public class Tile : MonoBehaviour
     void OnMouseDown()
     {
         // Put trap
-        if (EnableTile)
+        if (EnableTile && !CheckTraps())
         {
 
             LeftTopImage LTI = GameObject.FindObjectOfType<LeftTopImage>();
@@ -60,10 +58,10 @@ public class Tile : MonoBehaviour
             CARD_TYPES CardType = LTI.CardInTopLeft.Type;
             LTI.enabled = false;
 
-            GameManager.m_gameManager.LocalPlayer.RemoveOneCardFromPlayer(CardType);
-            CardManager.Instance.LoadSceneVariables(false);
-            GridManager.Instance.DeactivateTiles();
-            CardManager.Instance.DeactivateCards();
+            GameManager.m_gameManager.PlayerOne.RemoveOneCardFromPlayer(CardType);
+            //CardManager.Instance.LoadSceneVariables(false, GameManager.m_gameManager.);
+            //GridManager.Instance.DeactivateTiles();
+            //CardManager.Instance.DeactivateCards();
 
 
             LTI.DownPanel.SetActive(true);
@@ -87,6 +85,14 @@ public class Tile : MonoBehaviour
                 default:
                     break;
             }
+
+            FindObjectOfType<TurnManager>().NextTurn();
+
         }
+    }
+
+    bool CheckTraps()
+    {
+        return TrapJump.enabled || TrapBlock.enabled || TrapBomb.enabled;
     }
 }

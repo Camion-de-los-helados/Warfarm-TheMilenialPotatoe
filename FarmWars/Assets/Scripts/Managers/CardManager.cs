@@ -134,7 +134,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    internal void LoadSceneVariables(bool cardEnable)
+    internal void LoadSceneVariables(bool cardEnable, Player player)
     {
         DownPanel.SetActive(true);
 
@@ -152,15 +152,15 @@ public class CardManager : MonoBehaviour
         GameObject[] UIDownCards = { LeftImage, MiddleImage, RightImage };
 
 
-        for (int i = 0; i < GameManager.m_gameManager.LocalPlayer.m_playerCards.Length; i++)
+        for (int i = 0; i < player.m_playerCards.Length; i++)
         {
-            if (GameManager.m_gameManager.LocalPlayer.m_playerCards[i] == null)
+            if (player.m_playerCards[i] == null)
             {
                 break;
             }
             else
             {
-                switch (GameManager.m_gameManager.LocalPlayer.m_playerCards[i].Type)
+                switch (player.m_playerCards[i].Type)
                 {
                     case CARD_TYPES.BOMB:
                         prefabtoinstantiate = PotatoBombPrefab;
