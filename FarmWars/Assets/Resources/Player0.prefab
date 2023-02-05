@@ -430,6 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2534890128869324269}
   - component: {fileID: 2629791472349276927}
+  - component: {fileID: 7406953270467927954}
   m_Layer: 0
   m_Name: Player0
   m_TagString: Untagged
@@ -552,8 +553,8 @@ MonoBehaviour:
   authorityTransferType: 2
   orphanedBehavior: 0
   lifetimeType: 0
-  uniquenessType: 0
-  coherenceUUID: 
+  uniquenessType: 1
+  coherenceUUID: HotPotatoPlayer0
   destructionBehavior: 0
   preserveChildren: 0
   reflectionBindings: []
@@ -626,6 +627,19 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+--- !u!114 &7406953270467927954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534890128869324268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d470e57c013458981031cae99a354f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignOnSceneInstances: 0
 --- !u!1 &2534890128975145158
 GameObject:
   m_ObjectHideFlags: 0

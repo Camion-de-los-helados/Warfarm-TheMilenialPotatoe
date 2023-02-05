@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 26267408122474271}
   - component: {fileID: 26267408122474270}
   - component: {fileID: 4743358327666707204}
+  - component: {fileID: 2100025491353134777}
   m_Layer: 0
   m_Name: Sprite Potato
   m_TagString: Untagged
@@ -147,37 +148,37 @@ MonoBehaviour:
   authorityTransferType: 2
   orphanedBehavior: 0
   lifetimeType: 0
-  uniquenessType: 0
-  coherenceUUID: 
+  uniquenessType: 1
+  coherenceUUID: SpriteHotPotato
   destructionBehavior: 0
   preserveChildren: 0
   reflectionBindings: []
   customBindings: []
   bindings:
   - rid: 4603973057969913904
-  - rid: 4603973057969913906
-  - rid: 4603973057969913907
-  - rid: 4603973057969913908
-  - rid: 4603973057969913909
-  - rid: 4603973057969913910
-  - rid: 4603973057969913911
-  - rid: 4603973057969913912
-  - rid: 4603973057969913913
-  - rid: 4603973057969913914
-  - rid: 4603973057969913915
-  - rid: 4603973057969913916
-  - rid: 4603973057969913917
-  - rid: 4603973057969913918
-  - rid: 4603973057969913919
-  - rid: 4603973057969913920
-  - rid: 4603973057969913921
-  - rid: 4603973057969913922
-  - rid: 4603973057969913923
-  - rid: 4603973057969913924
-  - rid: 4603973057969913925
-  - rid: 4603973057969913926
-  - rid: 4603973057969913927
-  - rid: 4603973057969913928
+  - rid: 4603973058805891728
+  - rid: 4603973058805891729
+  - rid: 4603973058805891730
+  - rid: 4603973058805891731
+  - rid: 4603973058805891732
+  - rid: 4603973058805891733
+  - rid: 4603973058805891734
+  - rid: 4603973058805891735
+  - rid: 4603973058805891736
+  - rid: 4603973058805891737
+  - rid: 4603973058805891738
+  - rid: 4603973058805891739
+  - rid: 4603973058805891740
+  - rid: 4603973058805891741
+  - rid: 4603973058805891742
+  - rid: 4603973058805891743
+  - rid: 4603973058805891744
+  - rid: 4603973058805891745
+  - rid: 4603973058805891746
+  - rid: 4603973058805891747
+  - rid: 4603973058805891748
+  - rid: 4603973058805891749
+  - rid: 4603973058805891750
   onNetworkedInstantiation:
     m_PersistentCalls:
       m_Calls: []
@@ -244,15 +245,15 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913906
+    - rid: 4603973058805891728
       type: {class: Vector2Binding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913929
+          rid: 4603973058805891751
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 0fa48d8d-dfcc-4141-8806-1c6485bf6df9
+        guid: 3cd78dc1-8f44-4954-af45-909af13038ba
         archetypeData:
           type: 6
           minRange: 0
@@ -270,15 +271,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913907
+    - rid: 4603973058805891729
       type: {class: FloatBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913930
+          rid: 4603973058805891752
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 717770e0-9235-4c9e-a0a6-01932d82ab29
+        guid: b32a7255-a00b-4986-ab0d-d95a854232b4
         archetypeData:
           type: 4
           minRange: 0
@@ -296,15 +297,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913908
+    - rid: 4603973058805891730
       type: {class: ColorBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913931
+          rid: 4603973058805891753
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: ec5c0712-72a2-48ba-b555-8e401692e361
+        guid: 17bd950b-cd7b-4403-b75e-51c56d7ec389
         archetypeData:
           type: 11
           minRange: 0
@@ -322,15 +323,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913909
+    - rid: 4603973058805891731
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913932
+          rid: 4603973058805891754
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: eb79a8ef-04fc-4746-858b-d23171d60eff
+        guid: 39626318-5bec-45c5-97b3-aefedc8e7b2a
         archetypeData:
           type: 3
           minRange: 0
@@ -348,15 +349,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913910
+    - rid: 4603973058805891732
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913933
+          rid: 4603973058805891755
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: b86dda7c-999a-430d-bd28-edf776a5bd0a
+        guid: 636fa417-9e86-45b1-a82d-1fa5614da307
         archetypeData:
           type: 3
           minRange: 0
@@ -374,15 +375,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913911
+    - rid: 4603973058805891733
       type: {class: ReferenceBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913934
+          rid: 4603973058805891756
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 26ecf81c-81da-4858-81f6-e8043d4e5ed5
+        guid: 37c767d1-fc24-42f7-a9c1-78f08d618e06
         archetypeData:
           type: 9
           minRange: 0
@@ -400,15 +401,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913912
+    - rid: 4603973058805891734
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913935
+          rid: 4603973058805891757
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 6cadcc38-2cbf-465c-a6f3-64f540205948
+        guid: 55693119-da24-4000-9b40-cdebfae0aa14
         archetypeData:
           type: 3
           minRange: 0
@@ -426,15 +427,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913913
+    - rid: 4603973058805891735
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913936
+          rid: 4603973058805891758
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 4adc2889-5df2-4b4e-9212-49120b0b6e75
+        guid: 4e0f81b7-56e6-48f1-8b16-ebba0bb883d1
         archetypeData:
           type: 3
           minRange: 0
@@ -452,15 +453,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913914
+    - rid: 4603973058805891736
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913937
+          rid: 4603973058805891759
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 3beab72f-343b-4b45-9be3-cf7b5504b13e
+        guid: 4b392408-2433-4c48-8ba1-0d82e0f3d1bc
         archetypeData:
           type: 3
           minRange: 0
@@ -478,15 +479,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913915
+    - rid: 4603973058805891737
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913938
+          rid: 4603973058805891760
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 352c2bc2-3e37-440c-b6d3-989190eec4d6
+        guid: bb0fb577-deec-493d-aad9-3f533d752460
         archetypeData:
           type: 3
           minRange: 0
@@ -504,15 +505,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913916
+    - rid: 4603973058805891738
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913939
+          rid: 4603973058805891761
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: c3792a34-91d5-4e4e-b91e-3ad81e80969b
+        guid: 0cef1afd-6a41-455d-b265-4f6a65f2d1c6
         archetypeData:
           type: 3
           minRange: 0
@@ -530,15 +531,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913917
+    - rid: 4603973058805891739
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913940
+          rid: 4603973058805891762
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 7fd007e3-0795-4fa7-bf65-bb403d970d11
+        guid: e7507981-d53e-490f-bea4-6d23311e78cd
         archetypeData:
           type: 3
           minRange: 0
@@ -556,15 +557,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913918
+    - rid: 4603973058805891740
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913941
+          rid: 4603973058805891763
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 4e748b79-592a-40f2-b229-7d684a786aed
+        guid: b708b727-5edc-4f89-b2a5-7af8595ebcf2
         archetypeData:
           type: 3
           minRange: 0
@@ -582,15 +583,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913919
+    - rid: 4603973058805891741
       type: {class: UIntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913942
+          rid: 4603973058805891764
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: e375bf68-1b54-49f9-9046-15a8bd9a944b
+        guid: 308393dc-7e2b-4d4b-8c1a-cdcb9206e9d2
         archetypeData:
           type: 12
           minRange: 0
@@ -608,15 +609,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913920
+    - rid: 4603973058805891742
       type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913943
+          rid: 4603973058805891765
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 682c788a-4e0a-424d-932a-d3d13075246f
+        guid: 9a1e515a-19d8-4b9d-811e-2902131bb97b
         archetypeData:
           type: 1
           minRange: -2147483648
@@ -634,15 +635,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913921
+    - rid: 4603973058805891743
       type: {class: StringBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913944
+          rid: 4603973058805891766
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 730d7d41-ebb5-45ee-9d0a-7f325cf384a8
+        guid: 91f4dc29-e7cd-42ae-8dca-dab7d198ec33
         archetypeData:
           type: 5
           minRange: 0
@@ -660,15 +661,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913922
+    - rid: 4603973058805891744
       type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913945
+          rid: 4603973058805891767
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: d447a1aa-d9de-4e03-920f-65aa2cb97b65
+        guid: 7336b3b3-3cea-44c8-b9c8-7fe980d111dd
         archetypeData:
           type: 1
           minRange: -2147483648
@@ -686,15 +687,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913923
+    - rid: 4603973058805891745
       type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913946
+          rid: 4603973058805891768
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: b8285894-ae27-4726-bcd2-457821868019
+        guid: e0514b8b-60f2-487f-b8eb-1e41d904f0f9
         archetypeData:
           type: 1
           minRange: -2147483648
@@ -712,15 +713,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913924
+    - rid: 4603973058805891746
       type: {class: BoolBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913947
+          rid: 4603973058805891769
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 7c7660db-b663-4c10-9832-366edf9f2abc
+        guid: 46c20a9a-e8cc-4dc6-880a-c26a6ed53a0e
         archetypeData:
           type: 3
           minRange: 0
@@ -738,15 +739,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913925
+    - rid: 4603973058805891747
       type: {class: ReferenceBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913948
+          rid: 4603973058805891770
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: ca8def1a-0b40-41cc-835a-5db20253ea61
+        guid: 9c062a78-fcb7-4bf0-bfbd-aa898c2107f1
         archetypeData:
           type: 9
           minRange: 0
@@ -764,15 +765,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913926
+    - rid: 4603973058805891748
       type: {class: ReferenceBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913949
+          rid: 4603973058805891771
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 4c7ad843-fc04-4c75-943d-fcc5cf2972a4
+        guid: 6245612c-ff5d-4947-aafd-e60dd3dc8ea8
         archetypeData:
           type: 9
           minRange: 0
@@ -790,15 +791,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913927
+    - rid: 4603973058805891749
       type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913950
+          rid: 4603973058805891772
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 266eda0a-8331-4866-b70c-f62f2b848b49
+        guid: 89eab69e-0454-4c36-adce-212283d614c0
         archetypeData:
           type: 1
           minRange: -2147483648
@@ -816,15 +817,15 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913928
+    - rid: 4603973058805891750
       type: {class: IntBinding, ns: Coherence.Toolkit.Bindings.ValueBindings, asm: Coherence.Toolkit}
       data:
         descriptor:
-          rid: 4603973057969913951
+          rid: 4603973058805891773
         routing: 0
         isPredicted: 0
         defaultInterpolationPath: 
-        guid: 125932a0-1681-48b9-bdc5-1c27b88735f6
+        guid: 5673f60d-9432-4523-a3ca-ed611009fb5d
         archetypeData:
           type: 1
           minRange: -2147483648
@@ -842,7 +843,7 @@ MonoBehaviour:
         unityComponent: {fileID: 26267408122474270}
         coherenceSync: {fileID: 0}
         interpolationSettings: {fileID: 11400000, guid: ae4419d1d9a8643709bf5f6b90c584a5, type: 2}
-    - rid: 4603973057969913929
+    - rid: 4603973058805891751
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: size
@@ -862,7 +863,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913930
+    - rid: 4603973058805891752
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: adaptiveModeThreshold
@@ -882,7 +883,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913931
+    - rid: 4603973058805891753
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: color
@@ -902,7 +903,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913932
+    - rid: 4603973058805891754
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: flipX
@@ -922,7 +923,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913933
+    - rid: 4603973058805891755
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: flipY
@@ -942,7 +943,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913934
+    - rid: 4603973058805891756
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: lightProbeAnchor
@@ -962,7 +963,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913935
+    - rid: 4603973058805891757
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: castShadows
@@ -982,7 +983,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913936
+    - rid: 4603973058805891758
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: motionVectors
@@ -1002,7 +1003,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913937
+    - rid: 4603973058805891759
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: useLightProbes
@@ -1022,7 +1023,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913938
+    - rid: 4603973058805891760
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: enabled
@@ -1042,7 +1043,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913939
+    - rid: 4603973058805891761
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: receiveShadows
@@ -1062,7 +1063,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913940
+    - rid: 4603973058805891762
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: forceRenderingOff
@@ -1082,7 +1083,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913941
+    - rid: 4603973058805891763
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: staticShadowCaster
@@ -1102,7 +1103,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913942
+    - rid: 4603973058805891764
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: renderingLayerMask
@@ -1122,7 +1123,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913943
+    - rid: 4603973058805891765
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: rendererPriority
@@ -1142,7 +1143,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913944
+    - rid: 4603973058805891766
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: sortingLayerName
@@ -1162,7 +1163,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913945
+    - rid: 4603973058805891767
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: sortingLayerID
@@ -1182,7 +1183,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913946
+    - rid: 4603973058805891768
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: sortingOrder
@@ -1202,7 +1203,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913947
+    - rid: 4603973058805891769
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: allowOcclusionWhenDynamic
@@ -1222,7 +1223,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913948
+    - rid: 4603973058805891770
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: lightProbeProxyVolumeOverride
@@ -1242,7 +1243,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913949
+    - rid: 4603973058805891771
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: probeAnchor
@@ -1262,7 +1263,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913950
+    - rid: 4603973058805891772
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: lightmapIndex
@@ -1282,7 +1283,7 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
-    - rid: 4603973057969913951
+    - rid: 4603973058805891773
       type: {class: Descriptor, ns: Coherence.Toolkit.Bindings, asm: Coherence.Toolkit}
       data:
         name: realtimeLightmapIndex
@@ -1302,3 +1303,16 @@ MonoBehaviour:
             Coherence.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         oldName: 
         oldParameterAssemblyTypes: []
+--- !u!114 &2100025491353134777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26267408122474268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d470e57c013458981031cae99a354f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignOnSceneInstances: 0

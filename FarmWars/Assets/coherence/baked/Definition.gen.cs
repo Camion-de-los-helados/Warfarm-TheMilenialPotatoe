@@ -16,7 +16,7 @@ namespace Coherence.Generated
 
 	public class Definition : IDefinition
 	{
-		public const string schemaId = "e01d8ad0f23b583059665f210da4e43f8ade54b9";
+		public const string schemaId = "8aa5ffc3764971d8ca0d1d7b6deedf551cc75087";
 		public const uint InternalWorldPosition = 0;
 		public const uint InternalWorldOrientation = 1;
 		public const uint InternalLocalUser = 2;
@@ -119,11 +119,22 @@ namespace Coherence.Generated
 		public const uint InternalGenericFieldULong3 = 99;
 		public const uint InternalGenericFieldColor0 = 100;
 		public const uint InternalGenericFieldColor1 = 101;
-		public const uint InternalSquare_UnityEngine__char_46_SpriteRenderer_4692109573835368250 = 102;
-		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0 = 103;
-		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldOrientation_LOD0 = 104;
-		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_GenericScale_LOD0 = 105;
-		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250_LOD0 = 106;
+		public const uint InternalBackgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648 = 102;
+		public const uint InternalMiniGameManager_HotPotatoManager_8222345003895092174 = 103;
+		public const uint InternalSprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270 = 104;
+		public const uint InternalSquare_UnityEngine__char_46_SpriteRenderer_4692109573835368250 = 105;
+		public const uint InternalArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_WorldPosition_LOD0 = 106;
+		public const uint InternalArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648_LOD0 = 107;
+		public const uint InternalArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_WorldPosition_LOD0 = 108;
+		public const uint InternalArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_MiniGameManager_HotPotatoManager_8222345003895092174_LOD0 = 109;
+		public const uint InternalArchetypePlayer0_1b8b60cb7c844004ba711d3409682a23_WorldPosition_LOD0 = 110;
+		public const uint InternalArchetypePlayer1_358f1ade9e8606544972b75cb628cfd9_WorldPosition_LOD0 = 111;
+		public const uint InternalArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_WorldPosition_LOD0 = 112;
+		public const uint InternalArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270_LOD0 = 113;
+		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0 = 114;
+		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldOrientation_LOD0 = 115;
+		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_GenericScale_LOD0 = 116;
+		public const uint InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250_LOD0 = 117;
 		public const uint InternalAuthorityRequest = 0;
 		public const uint InternalAuthorityTransfer = 1;
 		public const uint InternalQuerySynced = 2;
@@ -234,11 +245,22 @@ namespace Coherence.Generated
 			{ 99, "GenericFieldULong3" },
 			{ 100, "GenericFieldColor0" },
 			{ 101, "GenericFieldColor1" },
-			{ 102, "Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250" },
-			{ 103, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0" },
-			{ 104, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldOrientation_LOD0" },
-			{ 105, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_GenericScale_LOD0" },
-			{ 106, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250_LOD0" },
+			{ 102, "Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648" },
+			{ 103, "MiniGameManager_HotPotatoManager_8222345003895092174" },
+			{ 104, "Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270" },
+			{ 105, "Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250" },
+			{ 106, "ArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_WorldPosition_LOD0" },
+			{ 107, "ArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648_LOD0" },
+			{ 108, "ArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_WorldPosition_LOD0" },
+			{ 109, "ArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_MiniGameManager_HotPotatoManager_8222345003895092174_LOD0" },
+			{ 110, "ArchetypePlayer0_1b8b60cb7c844004ba711d3409682a23_WorldPosition_LOD0" },
+			{ 111, "ArchetypePlayer1_358f1ade9e8606544972b75cb628cfd9_WorldPosition_LOD0" },
+			{ 112, "ArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_WorldPosition_LOD0" },
+			{ 113, "ArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270_LOD0" },
+			{ 114, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0" },
+			{ 115, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldOrientation_LOD0" },
+			{ 116, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_GenericScale_LOD0" },
+			{ 117, "ArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250_LOD0" },
 		};
 
 		public static string ComponentNameForTypeId(uint typeId)
@@ -464,8 +486,30 @@ namespace Coherence.Generated
 					return GenericFieldColor0.Deserialize(inProtocolStream);
 				case InternalGenericFieldColor1:
 					return GenericFieldColor1.Deserialize(inProtocolStream);
+				case InternalBackgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648:
+					return Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648.Deserialize(inProtocolStream);
+				case InternalMiniGameManager_HotPotatoManager_8222345003895092174:
+					return MiniGameManager_HotPotatoManager_8222345003895092174.Deserialize(inProtocolStream);
+				case InternalSprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270:
+					return Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270.Deserialize(inProtocolStream);
 				case InternalSquare_UnityEngine__char_46_SpriteRenderer_4692109573835368250:
 					return Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250.Deserialize(inProtocolStream);
+				case InternalArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648_LOD0:
+					return Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648.DeserializeArchetypeBackgroud_daf2ee43443998c43b7845ac6f687f8b_Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648_LOD0(inProtocolStream);
+				case InternalArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_MiniGameManager_HotPotatoManager_8222345003895092174_LOD0:
+					return MiniGameManager_HotPotatoManager_8222345003895092174.DeserializeArchetypeMiniGameManager_759334206ec3a2d46b848ec8d2431208_MiniGameManager_HotPotatoManager_8222345003895092174_LOD0(inProtocolStream);
+				case InternalArchetypePlayer0_1b8b60cb7c844004ba711d3409682a23_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypePlayer0_1b8b60cb7c844004ba711d3409682a23_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypePlayer1_358f1ade9e8606544972b75cb628cfd9_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypePlayer1_358f1ade9e8606544972b75cb628cfd9_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_WorldPosition_LOD0:
+					return WorldPosition.DeserializeArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_WorldPosition_LOD0(inProtocolStream);
+				case InternalArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270_LOD0:
+					return Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270.DeserializeArchetypeSprite__char_32_Potato_9695b90e9288dc943beda0d6f17570fe_Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270_LOD0(inProtocolStream);
 				case InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0:
 					return WorldPosition.DeserializeArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldPosition_LOD0(inProtocolStream);
 				case InternalArchetypeSquare_59eb3b3a74ef2544cbd0bb383d729383_WorldOrientation_LOD0:
@@ -789,6 +833,15 @@ namespace Coherence.Generated
 					break;
 				case InternalGenericFieldColor1:
 					GenericFieldColor1.Serialize((GenericFieldColor1)data, mask, protocolStream);
+					break;
+				case InternalBackgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648:
+					Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648.Serialize((Backgroud_UnityEngine__char_46_SpriteRenderer_6540651817069658648)data, mask, protocolStream);
+					break;
+				case InternalMiniGameManager_HotPotatoManager_8222345003895092174:
+					MiniGameManager_HotPotatoManager_8222345003895092174.Serialize((MiniGameManager_HotPotatoManager_8222345003895092174)data, mask, protocolStream);
+					break;
+				case InternalSprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270:
+					Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270.Serialize((Sprite__char_32_Potato_UnityEngine__char_46_SpriteRenderer_26267408122474270)data, mask, protocolStream);
 					break;
 				case InternalSquare_UnityEngine__char_46_SpriteRenderer_4692109573835368250:
 					Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250.Serialize((Square_UnityEngine__char_46_SpriteRenderer_4692109573835368250)data, mask, protocolStream);

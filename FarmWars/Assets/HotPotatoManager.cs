@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HotPotatoManager : MonoBehaviour
 {
-    [SerializeField] private int CurrentPlayer;
-    bool HasTurnFinished = false;
+    [SerializeField] public int CurrentPlayer;
+    public bool HasTurnFinished = false;
     [SerializeField] public float Timer = 0.0f;
     [SerializeField] public float MaxTime = 300.0f;
     [SerializeField] public float PenalisationTime = 20.0f;
@@ -14,8 +14,8 @@ public class HotPotatoManager : MonoBehaviour
     [SerializeField] public Sprite[] BackGrounds;
     [SerializeField] public SpriteRenderer BackgroundGame;
 
-    private float animationTime = 1.0f;
-    private float auxTimer = 0.0f;
+    public float animationTime = 1.0f;
+    public float auxTimer = 0.0f;
     private void Awake()
     {
         PlayerSelected();
@@ -95,7 +95,7 @@ public class HotPotatoManager : MonoBehaviour
 
     public void PlayerSelected()
     {
-        CurrentPlayer = 0;
+        //CurrentPlayer = 0;
         BackgroundGame.sprite = BackGrounds[CurrentPlayer];
     }
 
