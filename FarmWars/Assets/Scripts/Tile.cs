@@ -93,7 +93,10 @@ public class Tile : MonoBehaviour
                 }
 
                 FindObjectOfType<TurnManager>().NextTurn();
-                CardManager.Instance.LoadSceneVariables(true, GameObject.FindObjectOfType<TurnManager>().ActualPlayer);
+                if (GameObject.FindObjectOfType<TurnManager>().PotatoMoved)
+                    CardManager.Instance.LoadSceneVariables(false, GameObject.FindObjectOfType<TurnManager>().ActualPlayer);
+                else
+                    CardManager.Instance.LoadSceneVariables(true, GameObject.FindObjectOfType<TurnManager>().ActualPlayer);
             }
             else
             {
@@ -117,24 +120,38 @@ public class Tile : MonoBehaviour
         {
             if (EnableTile && CheckTraps())
             {
-                if (TrapJump.enabled)
-                {
-                    JumpEffect();
-                }
-                if (TrapBomb.enabled)
-                {
-                    BombEffect();
-                }
-                if (TrapBlock.enabled)
-                {
-                    GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
-                }
-                Debug.Log(GameManager.m_gameManager.PotatoPosition);
-                FindObjectOfType<TurnManager>().NextTurn();
+                Trap();
             }
         }
     }
+    private void Trap()
+    {
+        if (TrapJump.enabled)
+        {
+            TrapJump.enabled = false;
+            JumpEffect();
+        }
+        if (TrapBomb.enabled)
+        {
+            TrapBomb.enabled = false;
+            BombEffect();
+        }
+        if (TrapBlock.enabled)
+        {
+            TrapBlock.enabled = false;
+            GameManager.m_gameManager.UpdatePatatoPos(GameManager.m_gameManager.PotatoPosition.x, GameManager.m_gameManager.PotatoPosition.y);
+        }
 
+        if (!CheckTraps())
+        {
+            FindObjectOfType<TurnManager>().NextTurn();
+        }
+        else
+        {
+            Trap();
+        }
+
+    }
     private void JumpEffect()
     {
         Vector2 lastPosition = GameManager.m_gameManager.PotatoPosition;
@@ -144,11 +161,17 @@ public class Tile : MonoBehaviour
             {
                 if (lastPosition.y < y)
                 {
-                    GameManager.m_gameManager.UpdatePatatoPos(x, y + 1);
+                    if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                    {
+                        GameManager.m_gameManager.UpdatePatatoPos(x, y + 1);
+                    }
                 }
                 else
                 {
-                    GameManager.m_gameManager.UpdatePatatoPos(x, y - 1);
+                    if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                    {
+                        GameManager.m_gameManager.UpdatePatatoPos(x, y - 1);
+                    }
                 }
             }
         }
@@ -156,19 +179,50 @@ public class Tile : MonoBehaviour
         {
             if (lastPosition.x < x)
             {
-                GameManager.m_gameManager.UpdatePatatoPos(x + 1, y);
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x + 1, y);
+                }
             }
             else
             {
-                GameManager.m_gameManager.UpdatePatatoPos(x - 1, y);
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x - 1, y);
+                }
             }
         }
         if (lastPosition.x != x && lastPosition.y != y)
         {
-            if (lastPosition.x < x && lastPosition.y < y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y + 1);
-            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y - 1);
-            if (lastPosition.x < x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x + 1, y - 1);
-            if (lastPosition.x > x && lastPosition.y > y) GameManager.m_gameManager.UpdatePatatoPos(x - 1, y + 1);
+            if (lastPosition.x < x && lastPosition.y < y)
+            {
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x + 1, y + 1);
+                }
+            }
+            if (lastPosition.x > x && lastPosition.y > y)
+            {
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x - 1, y - 1);
+                }
+            }
+            if (lastPosition.x < x && lastPosition.y > y)
+            {
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x + 1, y - 1);
+                }
+            }
+
+            if (lastPosition.x > x && lastPosition.y > y)
+            {
+                if ((x >= 0 && x < 9) && (y >= 0 && y < 5))
+                {
+                    GameManager.m_gameManager.UpdatePatatoPos(x - 1, y + 1);
+                }
+            }
         }
     }
     private void BombEffect()
