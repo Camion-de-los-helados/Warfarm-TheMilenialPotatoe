@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 62353541728559094}
   - component: {fileID: 62353541728559095}
   - component: {fileID: -6782892315173326550}
-  - component: {fileID: -7777684864730986299}
+  - component: {fileID: 2944024424521423445}
   m_Layer: 5
-  m_Name: PotatoJumpinCard
+  m_Name: PotatoBlockCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20b430fd21627fb438930858c0f8ce1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00835ed43d618f84cbcf1bc2106464f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -95,8 +95,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -7777684864730986299}
-          m_TargetAssemblyTypeName: PotatoJumpinCard, Assembly-CSharp
+        - m_Target: {fileID: 2944024424521423445}
+          m_TargetAssemblyTypeName: PotatoBlockCard, Assembly-CSharp
           m_MethodName: DoAction
           m_Mode: 1
           m_Arguments:
@@ -111,7 +111,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -7777684864730986299}
+        - m_Target: {fileID: 2944024424521423445}
           m_TargetAssemblyTypeName: Card, Assembly-CSharp
           m_MethodName: ZoomOutCard
           m_Mode: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -7777684864730986299}
+        - m_Target: {fileID: 2944024424521423445}
           m_TargetAssemblyTypeName: Card, Assembly-CSharp
           m_MethodName: ZoomCard
           m_Mode: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &-7777684864730986299
+--- !u!114 &2944024424521423445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 62353541728559093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cef391b941f3641bc65c65c620a09e, type: 3}
+  m_Script: {fileID: 11500000, guid: e2efbe4a36b499d42ae68ab864b18e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CardImage: {fileID: 62353541728559095}
+  IsEnable: 1

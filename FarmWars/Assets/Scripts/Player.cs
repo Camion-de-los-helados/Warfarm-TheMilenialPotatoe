@@ -19,11 +19,21 @@ public class Player
         m_playerCards[NumberOfCardsInHand] = card;
         NumberOfCardsInHand++;
     }
-    public void RemoveCardFromPlayer(int cardPosition)
+    public void RemoveOneCardFromPlayer(CARD_TYPES CardType)
     {
-        m_playerCards[cardPosition] = null;
-        NumberOfCardsInHand--;
-        ReorderCardsInHand();
+        for (int i = 0; i < m_playerCards.Length; i++)
+        {
+            if (m_playerCards[i] != null)
+                if (m_playerCards[i].Type == CardType)
+                {
+                    m_playerCards[i] = null;
+                    NumberOfCardsInHand--;
+                    ReorderCardsInHand();
+                    return;
+                }
+        }
+
+
     }
 
     private void ReorderCardsInHand()

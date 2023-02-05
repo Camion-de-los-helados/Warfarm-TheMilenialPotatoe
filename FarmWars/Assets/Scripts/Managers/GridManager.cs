@@ -72,8 +72,6 @@ public class GridManager : MonoBehaviour
 
             for (int x = 0; x < Width; x++)
             {
-                //actualPosX = initXPos;
-
                 spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
 
                 spawnedPrefab.name = "tile" + x + " " + y;
