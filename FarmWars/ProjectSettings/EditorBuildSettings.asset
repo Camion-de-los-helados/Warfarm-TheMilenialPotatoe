@@ -5,14 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/CoherenceScene.unity
     guid: 5e0292bae8409cb4c915f66e10570629
   - enabled: 1
     path: Assets/Scenes/TestTilesMap.unity
     guid: 0be789a670dd19742b03f0ae77ed6641
+  - enabled: 1
+    path: Assets/Scenes/Minigames/TiroPatata/TiroPatataScene.unity
+    guid: 1d7e1e85d566c4fbab4aa15d0fda2260
+  - enabled: 1
+    path: Assets/Scenes/Minigames/patatong/Patatong.unity
+    guid: a04742eeaf877c640979702d9503c9f2
+  - enabled: 1
+    path: Assets/Scenes/Minigames/minijuego-clicks/HotPotato.unity
+    guid: ab4b162ddbe4b8b4f9d30cdcbf1c30fe
   m_configObjects:
     io.coherence.simulator.build.options: {fileID: 11400000, guid: 6767f04400a008f458cf265c555d4385, type: 2}

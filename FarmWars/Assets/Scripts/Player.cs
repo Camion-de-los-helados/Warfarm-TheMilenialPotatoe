@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Player
 {
+    public Player(int id)
+    {
+        this.ID = id;
+    }
+
     public Card[] m_playerCards = new Card[Const.MAX_CARDS_PER_PLAYER];
     private int NumberOfCardsInHand = 0;
-    private int ID;
+    public int ID;
     #region Methods
 
     void StartGame()

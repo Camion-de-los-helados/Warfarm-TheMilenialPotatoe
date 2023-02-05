@@ -33,4 +33,10 @@ public static class Const
     public const int PONG_PLAYER_SPEED = 8;
 
     public const float PONG_BALL_INCREMENT_SPEED = 0.1f;
+
+    public const int SCENE_MAP = 1;
+
+    public const int HOT_POTATO_SCENE_ID = 4;
+    public const int PATATONG_SCENE_ID = 3;
+    public const int TIROPATATA_SCENE_ID = 2;
 }
