@@ -109,7 +109,9 @@ public class TiroPatataManager : MonoBehaviour
 
             if (hit)
             {
-                Muerto(hit.collider.gameObject);
+                tiroPatata tiroP =  hit.collider.gameObject.GetComponent<tiroPatata>();
+                tiroP.muerto();
+                //Muerto(hit.collider.gameObject);
                 puntuacion++;
                 scoreTexto.text = ("Score: " + puntuacion.ToString());
                 Debug.Log(puntuacion);
