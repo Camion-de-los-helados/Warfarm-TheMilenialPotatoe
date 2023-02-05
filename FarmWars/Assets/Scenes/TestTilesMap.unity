@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &75341353 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5148302032423656206, guid: ec598b5672cde7f409c7b2320dffb615, type: 3}
+  m_PrefabInstance: {fileID: 5148302031543904822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145420202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2089,9 @@ MonoBehaviour:
   BothPlayersPlayed: 0
   LeftTopImage: {fileID: 1106679400}
   TextP: {fileID: 1723958961}
+  sR: {fileID: 75341353}
+  NewSprite: {fileID: 21300000, guid: 0aaad5bcef4eadb46a58f83522b1c505, type: 3}
+  PotatoMoved: 0
 --- !u!4 &671209993
 Transform:
   m_ObjectHideFlags: 0
@@ -5262,6 +5270,8 @@ MonoBehaviour:
   _soundVolume: 0
   _effectsVolume: 0
   _lastWinner: {fileID: 0}
+  turn: 0
+  PotatoPosition: {x: 0, y: 0}
 --- !u!1 &1550673535
 GameObject:
   m_ObjectHideFlags: 0

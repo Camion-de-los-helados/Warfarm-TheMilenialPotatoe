@@ -80,6 +80,7 @@ public class LeftTopImage : MonoBehaviour
         if (GOCardInTopLeft != null)
         {
             Destroy(GOCardInTopLeft);
+            CardInTopLeft = null;
         }
         DownPanel.SetActive(true);
 
