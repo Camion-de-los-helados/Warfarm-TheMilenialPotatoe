@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     #region Methods
     public void LoadScene(int id)
     {
-        SceneManager.LoadScene(id);
+        SceneManager.LoadSceneAsync(id);
     }
 
 

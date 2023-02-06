@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int Width, Height;
     [SerializeField] private Tile TilePrefab;
     [SerializeField] private Transform Camera;
+    [SerializeField] private Color[] RowColors = new Color[9];
 
     public Dictionary<Vector2, Tile> TilesDictionary { get; private set; }
 
@@ -53,6 +55,24 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    internal void PuttinPotato()
+    {
+        foreach (Vector2 v in TilesDictionary.Keys)
+        {
+            TilesDictionary.TryGetValue(v, out Tile tile);
+            tile.ChanginHighLightColor(true);
+        }
+    }
+
+    internal void PuttinTrap()
+    {
+        foreach (Vector2 v in TilesDictionary.Keys)
+        {
+            TilesDictionary.TryGetValue(v, out Tile tile);
+            tile.ChanginHighLightColor(false);
+        }
+    }
+
     //private void Update()
     //{
     //    Debug.Log(TilesDictionary);
@@ -64,7 +84,7 @@ public class GridManager : MonoBehaviour
         if (TilesDictionary.TryGetValue(new Vector2(x, y), out Tile tile))
         {
             tile.EnableTile = true;
-            
+
         }
     }
     private void OnEnable()
@@ -86,6 +106,8 @@ public class GridManager : MonoBehaviour
                 GetTileAtPosition(new Vector2(i, j)).EnableTile = false;
     }
 
+
+
     public void GenerateGrid()
     {
         GameObject emptyParentTiles = Instantiate(new GameObject());
@@ -93,7 +115,6 @@ public class GridManager : MonoBehaviour
         emptyParentTiles.name = "Tiles";
         emptyParentTiles.transform.SetParent(gameObject.transform);
 
-        //DontDestroyOnLoad(spawnedPrefab.gameObject);
         float actualPosX = initXPos;
         float actualPosY = initYPos;
         if (TilesDictionary == null)
@@ -110,7 +131,6 @@ public class GridManager : MonoBehaviour
                 for (int x = 0; x < Width; x++)
                 {
                     spawnedPrefab = Instantiate(TilePrefab, new Vector3(actualPosX, actualPosY), Quaternion.identity);
-                    //DontDestroyOnLoad(spawnedPrefab.gameObject);
 
 
                     spawnedPrefab.name = "tile" + x + " " + y;
@@ -120,15 +140,10 @@ public class GridManager : MonoBehaviour
                     spawnedPrefab.y = y;
 
                     //var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
-             
 
-                        spawnedPrefab.Init(x);
-                    
-                    //else
-                    //{
-                    //    spawnedPrefab.Renderer.color=
-                    //         Renderer.color = x < 4 ? new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a) : new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
-                    //}
+
+                    spawnedPrefab.Init(x, RowColors[x]);
+
 
                     spawnedPrefab.transform.SetParent(emptyParentTiles.transform);
                     actualPosX += spawnedPrefab.GetSizeofRenderer().y;
@@ -142,47 +157,7 @@ public class GridManager : MonoBehaviour
 
             }
         }
-        //else
-        //{
-        //    Tile tile = null;
-        //    for (int y = 0; y < Height; y++)
-        //    {
-        //        actualPosX = initXPos;
 
-        //        for (int x = 0; x < Width; x++)
-        //        {
-        //            TilesDictionary.TryGetValue(new Vector2(x, y), out tile);
-
-        //            GameObject ti = new GameObject();
-
-        //            Tile temp = ti.AddComponent<Tile>();
-        //            temp = tile;
-
-        //            ti = Instantiate(ti, new Vector3(actualPosX, actualPosY), Quaternion.identity);
-
-        //            ti.name = "tile" + x + " " + y;
-        //            ti.transform.localScale = new Vector3(scale, scale, 0);
-
-        //            tile.x = x;
-        //            tile.y = y;
-
-        //            var IsOffset = ((int)x % 2 == 0 && (int)y % 2 != 0) || ((int)x % 2 != 0 && (int)y % 2 == 0);
-        //            tile.Init(IsOffset);
-
-        //            ti.transform.SetParent(emptyParentTiles.transform);
-        //            actualPosX += tile.GetSizeofRenderer().y;
-
-        //            //TilesDictionary.Add(new Vector2(x, y), spawnedPrefab);
-
-        //        }
-
-        //        actualPosY += tile.GetSizeofRenderer().x;
-
-
-        //    }
-        //}
-
-        //Camera.transform.position = new Vector3((float)Width / 2 - 0.5f, (float)Height / 2 - 0.5f, -10);
 
     }
 

@@ -3,11 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[Serializable]
+public struct IntensityColors
+{
+    [SerializeField]
+    public Color FirstIntensity, SecondIntensity, ThirdIntensity, ForthIntensity;
+}
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private Color BaseColor, OffsetColor;
     [SerializeField] private SpriteRenderer Renderer;
-    [SerializeField] private GameObject Higlight;
+
+
+    [SerializeField] private SpriteRenderer Highlight;
+
+    [SerializeField] private Color PotatoMovementHighlightColor;
+    [SerializeField] private Color PuttinTrapHighlightColor;
+
+
     public float sizeX;
     public float sizeY;
 
@@ -27,23 +40,21 @@ public class Tile : MonoBehaviour
     public SpriteRenderer Patata;
 
     public bool EnableTile = false;
+    private bool bPuttinPotato;
 
 
     // Start is called before the first frame update
-    public void Init(int x)
+    public void Init(int x, Color color)
     {
         Patata.enabled = false;
-        if (x < 4)
-        {
-            Renderer.color = new Color(BaseColor.r, BaseColor.g, BaseColor.b, BaseColor.a);
-        }
-        else if (x > 4)
-        {
-            Renderer.color = new Color(OffsetColor.r, OffsetColor.g, OffsetColor.b, OffsetColor.a);
-        }
+        Highlight.enabled = false;
+        Renderer.color = new Color(color.r, color.g, color.b, color.a);
 
     }
-
+    bool CheckTraps()
+    {
+        return TrapJump.enabled || TrapBlock.enabled || TrapBomb.enabled || Patata.enabled;
+    }
     public Vector2 GetSizeofRenderer()
     {
         sizeX = Renderer.bounds.size.x;
@@ -53,21 +64,46 @@ public class Tile : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        if (EnableTile && !CheckTraps())
-            Higlight.SetActive(true);
+        if (EnableTile && !Patata.enabled)
+        {
+            if (bPuttinPotato)
+            {
+                Highlight.material.SetColor("_Color", new Color(PotatoMovementHighlightColor.r, PotatoMovementHighlightColor.g, PotatoMovementHighlightColor.b, 1));
+
+            }
+            else
+            {
+                Highlight.material.SetColor("_Color", new Color(PuttinTrapHighlightColor.r, PuttinTrapHighlightColor.g, PuttinTrapHighlightColor.b, 1));
+
+            }
+            Highlight.enabled = true;
+
+        }
+    }
+
+    public void ChanginHighLightColor(bool PuttinPotato)
+    {
+        bPuttinPotato = PuttinPotato;
     }
 
     void OnMouseExit()
     {
-        if (EnableTile && !CheckTraps())
-            Higlight.SetActive(false);
+        Highlight.enabled = false;
     }
 
     void OnMouseDown()
     {
-        // Put trap
-        if (EnableTile && !CheckTraps())
+        if (!Patata.enabled && CheckTraps() && GameObject.FindObjectOfType<TurnManager>().PotatoMoved)
         {
+            //Activate Potate trap
+
+            Debug.Log("TRAP");
+            Trap();
+        }
+        else if (EnableTile && !CheckTraps())
+        {
+            Highlight.enabled = false;
+            EnableTile = false;
 
             LeftTopImage LTI = GameObject.FindObjectOfType<LeftTopImage>();
             if (LTI != null && LTI.CardInTopLeft != null)
@@ -106,9 +142,8 @@ public class Tile : MonoBehaviour
                 else
                     CardManager.Instance.LoadSceneVariables(true, GameObject.FindObjectOfType<TurnManager>().ActualPlayer);
             }
-            else
+            else if (!Patata.enabled && !CheckTraps())
             {
-
                 Patata.enabled = true;
                 GameManager.m_gameManager.UpdatePatatoPos(x, y);
 
@@ -124,13 +159,8 @@ public class Tile : MonoBehaviour
             }
 
         }
-        else
-        {
-            if (CheckTraps() && GameObject.FindObjectOfType<TurnManager>().PotatoMoved)
-            {
-                Trap();
-            }
-        }
+
+
     }
     public void Trap()
     {
@@ -271,8 +301,5 @@ public class Tile : MonoBehaviour
         }
     }
 
-    bool CheckTraps()
-    {
-        return TrapJump.enabled || TrapBlock.enabled || TrapBomb.enabled || Patata.enabled;
-    }
+
 }

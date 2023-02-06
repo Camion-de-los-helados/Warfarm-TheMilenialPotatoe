@@ -63,23 +63,8 @@ public class TiroPatataManager : MonoBehaviour
         SpriteP0.SetActive(false);
         SpriteP1.SetActive(false);
         CanvasInitial.SetActive(true);
-        // for (int i = 0; i < numPotato; i++)
-        // {
-        //     //float randomX = Random.Range(0,2)*2-1;
-        //     //float randomY = Random.Range(0,2)*2-1; //-1 or 1
+       
 
-        //     float randomX = Random.Range(-10, 10);
-        //     GameObject obj = (GameObject)Instantiate(potatoPrefab, new Vector3(randomX ,-5, 0), Quaternion.identity);
-        //     if ( randomX >= 0)
-        //     {
-        //         obj.GetComponent<tiroPatata>().addForce(new Vector2(0.5f,1), 14f);
-        //     }
-        //     else 
-        //     {
-        //         obj.GetComponent<tiroPatata>().addForce(new Vector2(-0.5f,1), 14f);
-        //     }
-
-        // }
 
     }
 

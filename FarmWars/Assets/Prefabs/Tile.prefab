@@ -105,7 +105,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &4456494855462122383
+--- !u!1 &4109721094118365325
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,37 +113,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4235363975371231176}
-  - component: {fileID: 499588932688338597}
+  - component: {fileID: 2284328648049938409}
+  - component: {fileID: 1007491987007859485}
+  - component: {fileID: 5481232436203523376}
   m_Layer: 0
-  m_Name: Square
+  m_Name: HighLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4235363975371231176
+  m_IsActive: 1
+--- !u!4 &2284328648049938409
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456494855462122383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0004, y: 0, z: 0}
-  m_LocalScale: {x: 0.321, y: 0.321, z: 1}
+  m_GameObject: {fileID: 4109721094118365325}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7833917854152698956}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &499588932688338597
+--- !u!212 &1007491987007859485
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456494855462122383}
+  m_GameObject: {fileID: 4109721094118365325}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -177,18 +178,38 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 360939315
   m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 99f0703e9c8961f4eabf0642d50e95f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3254902}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: -955095935, guid: be104a7f31136a84d91fac2244e64097, type: 3}
+  m_Color: {r: 1, g: 0.9780377, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5481232436203523376
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109721094118365325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc90e5587363bee45ad4f3df0a26baed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4537688738191049337
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +243,7 @@ Transform:
   - {fileID: 7992125477365453485}
   - {fileID: 5119995873006330707}
   m_Father: {fileID: 7833917854152698956}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4749521473257031069
 GameObject:
@@ -360,7 +381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7833917854152698956}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6709792151805506046
 SpriteRenderer:
@@ -675,9 +696,9 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2284328648049938409}
   - {fileID: 236410977563511391}
   - {fileID: 1443474815814906541}
-  - {fileID: 4235363975371231176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -722,7 +743,7 @@ SpriteRenderer:
   m_SortingLayerID: 360939315
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 548079c1be946ba439b4d76b2085ea31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc838a399a32e354b89efe02e11caa76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
   m_FlipX: 0
   m_FlipY: 0
@@ -745,10 +766,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee2d339016406a48a480d42c542f368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseColor: {r: 0.43873262, g: 0.528378, b: 0.9811321, a: 0.21176471}
-  OffsetColor: {r: 1, g: 0.32452828, b: 0.32452828, a: 0.65882355}
   Renderer: {fileID: 8007354958602608983}
-  Higlight: {fileID: 4456494855462122383}
+  Highlight: {fileID: 1007491987007859485}
+  PotatoMovementHighlightColor: {r: 1, g: 0.9815198, b: 0, a: 0}
+  PuttinTrapHighlightColor: {r: 0.035733357, g: 0.6886792, b: 0.061121523, a: 0}
   sizeX: 0
   sizeY: 0
   x: 0

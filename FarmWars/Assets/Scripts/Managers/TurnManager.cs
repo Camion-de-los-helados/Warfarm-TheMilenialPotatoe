@@ -21,7 +21,7 @@ public class TurnManager : MonoBehaviour
     {
         if (PotatoMoved)
         {
-
+            PotatoMoved = false;
             if (GameManager.m_gameManager.PotatoPosition.x == 0 || GameManager.m_gameManager.PotatoPosition.x == 8)
             {
                 GameManager.m_gameManager.Win();
@@ -31,9 +31,9 @@ public class TurnManager : MonoBehaviour
                 GridManager.Instance.DeActivateTilesObject();
 
                 int minigame = Random.Range(2, 6);
-                Debug.Log(minigame);
-
+                //TODO: Show canvas of loading minigame
                 GameManager.m_gameManager.LoadScene(minigame);
+                
             }
         }
         else if (BothPlayersPlayed)
@@ -44,8 +44,9 @@ public class TurnManager : MonoBehaviour
             CardManager.Instance.DeactivateCards();
 
             Vector2Int PPosition = GameManager.m_gameManager.PotatoPosition;
+            
 
-            GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y + 1);
+           GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y + 1);
             GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y - 1);
             GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y - 1);
             GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y + 1);
@@ -54,9 +55,11 @@ public class TurnManager : MonoBehaviour
             GridManager.Instance.EnableSpecificTile(PPosition.x + 1, PPosition.y);
             GridManager.Instance.EnableSpecificTile(PPosition.x - 1, PPosition.y);
 
+            GridManager.Instance.PuttinPotato();
         }
         else
         {
+            GridManager.Instance.PuttinTrap();
             if (ActualPlayer.ID == 0)
             {
                 ActualPlayer = GameManager.m_gameManager.PlayerTwo;
@@ -71,6 +74,7 @@ public class TurnManager : MonoBehaviour
 
             CardManager.Instance.DrawCard(ActualPlayer);
 
+            PotatoMoved = false;
 
             BothPlayersPlayed = true;
 
@@ -87,6 +91,8 @@ public class TurnManager : MonoBehaviour
             sR.sprite = RedSprite;
 
     }
+
+  
 
     private void Start()
     {
